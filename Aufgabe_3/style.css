@@ -4,4 +4,6 @@
 @font-face{font-family:"LemonMilk"; src: url('/Font/LemonMilk.otf') format('opentype')}
 
 
-body{font-family:LemonMilk }
+body{font-family:LemonMilk;
+      background-color: rgb(00,00,00);
+    color: rgb(ff, ff, ff)}
