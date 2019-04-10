@@ -1,3 +1,2 @@
-@font-face{font-family:LemonMilk;src:url(/Font/LemonMilk.otf) format(otf)}
-
-p{font-family: LemonMilk, LemonMilk}
+@font-face{font-family:"LemonMilk"; src: url('/Font/LemonMilk.otf') format('otf')}
+p{font-family:LemonMilk,LemonMilk}
