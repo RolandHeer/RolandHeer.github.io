@@ -14,6 +14,10 @@ body {
     color           : #fff
 }
 
+header {
+    margin-bottom: 45px
+}
+
 #Signature {
     width: 150px;
     display: block;
@@ -22,9 +26,12 @@ body {
     margin-bottom: 45px
 }
 
-header {
-    margin-bottom: 45px
+#Slogan {
+    text-align: center;
+    padding-left: 400px;
+    padding-right: 400px;
 }
+
 
 h1 {
     font-family   : LemonMilklight;
@@ -35,8 +42,5 @@ h1 {
 }
 
 nav {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    
 }
