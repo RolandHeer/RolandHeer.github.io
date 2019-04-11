@@ -14,33 +14,33 @@ body {
     color           : #fff
 }
 
-header {
-    margin-bottom: 45px
-}
-
 #Signature {
     width: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 45px
+    padding-bottom: 50px
 }
-
-#Slogan {
-    text-align: center;
-    padding-left: 400px;
-    padding-right: 400px;
-}
-
 
 h1 {
     font-family   : LemonMilklight;
     font-size     : 400%;
     letter-spacing: 20px;
     text-align    : center;
-    margin-bottom : 50px
+    padding-bottom : 50px
+}
+
+#Slogan {
+    text-align: center;
+    padding-left: 0%;
+    padding-right: 700px;
+    padding-bottom: 50px
+}
+
+#Ornament {
+    font-size: 400%;
 }
 
 nav {
-    
+padding-bottom: 50px    
 }
