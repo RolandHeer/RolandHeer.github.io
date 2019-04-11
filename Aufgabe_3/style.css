@@ -15,10 +15,10 @@ body {
 }
 
 #Signature {
-    width: 150px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width         : 150px;
+    display       : block;
+    margin-left   : auto;
+    margin-right  : auto;
     padding-bottom: 50px
 }
 
@@ -27,26 +27,39 @@ h1 {
     font-size     : 400%;
     letter-spacing: 20px;
     text-align    : center;
-    padding-bottom : 50px
+    padding-bottom: 50px
 }
 
 #Slogan {
-    text-align: center;
-    padding-left: 35%;
-    padding-right: 35%;
+    text-align    : center;
+    padding-left  : 35%;
+    padding-right : 35%;
     padding-bottom: 50px
 }
 
 #Ornament {
-    font: normal;
     text-align: center;
-    font-size: 400%;
+    font-size : 250%;
 }
 
 nav {
-padding-bottom: 50px    
+    padding-bottom: 50px
 }
 
 main {
     background-color: #333
+}
+
+.Bildlinks {
+    float: left;
+    padding: 20px
+}
+
+.Bildrechts {
+    float: right;
+    padding: 20px
+}
+
+.rechtsbuendig {
+    text-align: right
 }
