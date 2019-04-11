@@ -38,9 +38,15 @@ h1 {
 }
 
 #Ornament {
+    font: normal;
+    text-align: center;
     font-size: 400%;
 }
 
 nav {
 padding-bottom: 50px    
+}
+
+main {
+    background-color: #333
 }
