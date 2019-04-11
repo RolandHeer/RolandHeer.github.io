@@ -16,5 +16,6 @@ body {
 
 h1 {
     font-family: LemonMilklight;
-    font-size  : 300%
+    font-size  : 400%;
+    letter-spacing: 50%
 }
