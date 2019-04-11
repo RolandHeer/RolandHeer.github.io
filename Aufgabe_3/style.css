@@ -17,7 +17,8 @@ body {
 h1 {
     font-family: LemonMilklight;
     font-size  : 400%;
-    letter-spacing: 20px
+    letter-spacing: 20px;
+    float: center;
 }
 
 #Signature{
