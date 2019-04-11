@@ -12,7 +12,7 @@ body {
     font-family     : LemonMilk;
     background-color: #000;
     color           : #fff;
-    padding: 30px
+
 }
 
 #Signature {
@@ -44,7 +44,8 @@ h1 {
 }
 
 nav {
-    padding-bottom: 50px
+    padding-bottom: 50px;
+    padding-left: 30px
 }
 
 main {
@@ -55,6 +56,10 @@ h2{
     font-family: LemonMilklight;
     text-align: center;
     padding: 40px
+}
+
+section{
+    padding: 30px
 }
 
 article{
