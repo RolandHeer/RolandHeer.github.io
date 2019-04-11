@@ -2,14 +2,19 @@
     font-family: LemonMilk;
     src        : url(/Font/LemonMilk.otf) format('opentype')
 }
+
 @font-face {
     font-family: LemonMilklight;
     src        : url(/Font/LemonMilklight.otf) format('opentype')
 }
+
 body {
     font-family     : LemonMilk;
     background-color: #000;
     color           : #fff
 }
-h1{font-family: LemonMilklight;
-font-size: 10%}
+
+h1 {
+    font-family: LemonMilklight;
+    font-size  : 120%
+}
