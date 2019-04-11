@@ -51,7 +51,8 @@ nav {
 
 main {
     padding: 30px;
-    background-color: #333
+    background-color: #333;
+    margin-bottom: 30px
 }
 
 h2{
@@ -100,6 +101,7 @@ p{
 }
 
 footer{
+    margin: 30px;
     padding: 40px;
     background-color: #ffb33a;
     text-align: center
