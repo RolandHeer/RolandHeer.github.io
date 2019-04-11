@@ -11,7 +11,8 @@
 body {
     font-family     : LemonMilk;
     background-color: #000;
-    color           : #fff
+    color           : #fff;
+    padding: 30px
 }
 
 #Signature {
@@ -79,7 +80,7 @@ aside{
 }
 
 footer{
-    padding: 40px
+    padding: 40px;
     background-color: #ffb33a;
     text-align: center
 }
