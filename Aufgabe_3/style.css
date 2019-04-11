@@ -22,6 +22,10 @@ body {
     margin-bottom: 45px
 }
 
+header {
+    margin-bottom: 45px
+}
+
 h1 {
     font-family   : LemonMilklight;
     font-size     : 400%;
@@ -31,5 +35,8 @@ h1 {
 }
 
 nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
