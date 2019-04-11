@@ -62,14 +62,23 @@ article{
 
 .Bildlinks {
     float: left;
-    padding: 20px
+    padding: 40px
 }
 
 .Bildrechts {
     float: right;
-    padding: 20px
+    padding: 40px
 }
 
 .rechtsbuendig {
     text-align: right
+}
+
+aside{
+    float: right;
+}
+
+footer{
+    background-color: #ffb33a;
+    text-align: center
 }
