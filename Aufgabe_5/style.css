@@ -213,6 +213,10 @@ p {
     font-size: 90%;
 }
 
+header p{
+    font-size: 120%
+}
+
 aside p {
     font-size: 130%;
 }
