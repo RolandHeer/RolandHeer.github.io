@@ -1,0 +1,132 @@
+@font-face {
+    font-family: LemonMilk;
+    src        : url(LemonMilk.otf) format('opentype')
+}
+
+@font-face {
+    font-family: LemonMilklight;
+    src        : url(LemonMilklight.otf) format('opentype')
+}
+
+body {
+    font-family     : LemonMilk;
+    background-color: #000;
+    color           : #fff;
+
+}
+
+#Signature {
+    width         : 150px;
+    height        : 160px;
+    display       : block;
+    margin-left   : auto;
+    margin-right  : auto;
+    padding-top   : 100px;
+    padding-bottom: 90px
+}
+
+#UEBERschrift {
+    position      : relative;
+    top           : 40px;
+    font-family   : LemonMilklight;
+    font-size     : 200%;
+    letter-spacing: 17px;
+    text-align    : center;
+    padding       : 0%
+}
+
+h1 {
+    font-family   : LemonMilklight;
+    font-size     : 500%;
+    letter-spacing: 20px;
+    text-align    : center;
+    padding-bottom: 50px
+}
+
+#Slogan {
+    text-align    : center;
+    padding-left  : 35%;
+    padding-right : 35%;
+    padding-bottom: 50px
+}
+
+#Ornament {
+    text-align: center;
+    font-size : 250%;
+}
+
+nav {
+    padding-top   : 160px;
+    padding-bottom: 50px;
+}
+
+li {
+    margin-left : auto;
+    margin-right: auto;
+}
+
+main {
+    padding         : 30px;
+    background-color: #333;
+    margin-bottom   : 30px
+}
+
+span {
+    width: 75%;
+}
+
+h2 {
+    font-size  : 250%;
+    font-family: LemonMilklight;
+    text-align : center;
+}
+
+h3 {
+    font-size: 180%
+}
+
+img {
+    width        : 256px;
+    height       : 256px;
+    border       : #ffb33a;
+    border-radius: 5px
+}
+
+section {
+    margin          : 30px;
+    padding         : 30px;
+    background-color: #444
+}
+
+article {
+    margin          : 30px;
+    padding         : 30px;
+    background-color: #555;
+    padding-bottom  : 40px;
+}
+
+.Bildlinks {
+    float  : left;
+    padding: 40px
+}
+
+.Bildrechts {
+    float  : right;
+    padding: 40px
+}
+
+.rechtsbuendig {
+    text-align: right
+}
+
+p {
+    font-size: 110%;
+    color    : #eee
+}
+
+footer {
+    margin          : 30px;
+    padding         : 40px;
+    background-color: #ffb33a;
+    text-align      : center
+}
