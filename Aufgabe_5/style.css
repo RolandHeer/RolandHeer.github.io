@@ -217,6 +217,10 @@ aside p {
     font-size: 130%;
 }
 
+footer p {
+    font-size: 130%
+}
+
 footer {
     margin          : 30px;
     padding         : 40px;
