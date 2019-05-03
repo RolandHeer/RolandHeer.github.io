@@ -8,6 +8,11 @@
     src        : url(LemonMilklight.otf) format('opentype')
 }
 
+header {
+    z-index : 100;
+    position: relative;
+}
+
 header div {
     z-index         : 50;
     position        : fixed;
@@ -28,7 +33,7 @@ body {
 #Burger {
     position: fixed;
     left    : 20px;
-    top: -45px;
+    top     : -45px;
     width   : 110px;
     padding : 10px;
     height  : auto
@@ -40,10 +45,10 @@ nav {
 }
 
 ul {
+    position       : fixed;
     display        : none;
     width          : 300px;
-    position       : fixed;
-    top: 118px;
+    top            : 118px;
     left           : -15px;
     text-decoration: none;
     list-style     : none;
@@ -78,8 +83,6 @@ a {
 
 
 #Signature {
-    position      : relative;
-    z-index       : 100;
     width         : 150px;
     height        : auto;
     display       : block;
@@ -90,8 +93,6 @@ a {
 }
 
 #UEBERschrift {
-    z-index       : 100;
-    position      : relative;
     top           : 40px;
     font-family   : LemonMilklight;
     font-size     : 200%;
@@ -101,8 +102,6 @@ a {
 }
 
 h1 {
-    position      : relative;
-    z-index       : 100;
     font-family   : LemonMilklight;
     font-size     : 500%;
     letter-spacing: 20px;
@@ -111,17 +110,13 @@ h1 {
 }
 
 #Slogan {
-    position      : relative;
-    z-index       : 100;
     text-align    : center;
-    padding-left  : 35%;
-    padding-right : 35%;
+    padding-left  : 37%;
+    padding-right : 37%;
     padding-bottom: 50px
 }
 
 #Ornament {
-    position      : relative;
-    z-index       : 100;
     text-align    : center;
     font-size     : 250%;
     padding-bottom: 90px;
@@ -167,8 +162,8 @@ section {
 }
 
 section:nth-child(3n +1) {
-    clear           : left;
-    margin-left     : 45px;
+    clear      : left;
+    margin-left: 45px;
 }
 
 img {
@@ -177,43 +172,42 @@ img {
     height: 280px;
 }
 
-article{
-    position: absolute;
-    bottom: 0px;
-    display: none;
-    width: 320px;
-    height: 160px;
+article {
+    position        : absolute;
+    bottom          : 0px;
+    display         : none;
+    width           : 320px;
+    height          : 160px;
     background-color: #00000040
 }
 
-section:hover article{
+section:hover article {
     display: block;
 }
 
-article div{
+article div {
     margin: 20px;
 }
 
-h2{
+h2 {
     font-family: LemonMilklight;
-    font-size: 200%;
+    font-size  : 200%;
 }
 
-h3{
+h3 {
     padding-left: 20px;
-    font-size: 120%;
+    font-size   : 120%;
 }
 
 p {
-    position: relative;
-    top: -15px;
-    padding-left: 20px;
-    padding-right: 20px;
+    top           : -15px;
+    padding-left  : 20px;
+    padding-right : 20px;
     padding-bottom: 20px;
-    font-size: 90%;
+    font-size     : 90%;
 }
 
-header p{
+header p {
     font-size: 120%
 }
 
