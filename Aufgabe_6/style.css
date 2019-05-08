@@ -34,7 +34,7 @@ body {
 #Burger {
     position: fixed;
     left    : 20px;
-    top     : -45px;
+    top     : -20px;
     width   : 110px;
     padding : 10px;
     height  : auto
@@ -43,17 +43,18 @@ body {
 nav {
     position: fixed;
     z-index : 111;
+    width: 100%;
 }
 
 ul {
     position       : fixed;
     display        : none;
-    width          : 300px;
+    width          : 50%;
     top            : 118px;
     left           : -15px;
     text-decoration: none;
     list-style     : none;
-    font-size      : 200%;
+    font-size      : 300%;
 }
 
 #Burger:hover+ul {
@@ -124,9 +125,21 @@ h1 {
 }
 
 
-@media screen and(min-width: 40em) {
+@media (min-width: 1000px) {
 
-    
+    #Burger {
+        position: fixed;
+        left    : 20px;
+        top     : -45px;
+        width   : 110px;
+        padding : 10px;
+        height  : auto
+    }
+
+    ul{
+        width: 300px;
+        font-size: 200%;
+    }    
 
     aside {
         color: #666;
