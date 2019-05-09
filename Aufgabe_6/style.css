@@ -10,9 +10,9 @@
 
 
 
- /*ALLGEMEINES*/
+/*ALLGEMEINES*/
 
- body {
+body {
     font-family     : LemonMilk;
     background-color: #000;
     color           : #fff;
@@ -31,7 +31,7 @@ header div {
     top             : -8px;
     left            : -3px;
     background-color: #000;
-    width           : 19%;
+    width           : 101%;
     height          : 160px;
 }
 
@@ -44,12 +44,12 @@ nav {
 ul {
     position       : fixed;
     display        : none;
-    width          : 300px;
-    top            : 121px;
+    width          : 50%;
+    top            : 113px;
     left           : -15px;
     text-decoration: none;
     list-style     : none;
-    font-size      : 200%;
+    font-size      : 350%;
 }
 
 #Burger {
@@ -103,15 +103,16 @@ a {
     position      : relative;
     top           : 48px;
     font-family   : LemonMilklight;
-    font-size     : 200%;
-    letter-spacing: 17px;
+    font-size     : 130%;
+    left          : -6px;
+    letter-spacing: 8px;
     text-align    : center;
 
 }
 
 h1 {
     font-family   : LemonMilklight;
-    font-size     : 500%;
+    font-size     : 350%;
     letter-spacing: 20px;
     text-align    : center;
     padding-bottom: 50px
@@ -119,8 +120,8 @@ h1 {
 
 #Slogan {
     text-align    : center;
-    padding-left  : 37%;
-    padding-right : 37%;
+    padding-left  : 5%;
+    padding-right : 5%;
     padding-bottom: 50px
 }
 
@@ -133,7 +134,8 @@ h1 {
 /*ASIDES/UNTENDRUNTERS*/
 
 aside {
-    color: #666;
+    color     : #666;
+    text-align: center;
 }
 
 aside * {
@@ -141,18 +143,11 @@ aside * {
 }
 
 #links {
-    position: relative;
-    display : inline-block;
-    float   : left;
-    width   : 19%;
+    width: 100%;
 }
 
 #rechts {
-    text-align: right;
-    position  : relative;
-    display   : inline-block;
-    float     : right;
-    width     : 19%;
+    width: 100%;
 }
 
 
@@ -161,17 +156,10 @@ aside * {
 main {
     display         : inline-block;
     float           : unset;
-    width           : 60%;
+    width           : 100%;
     background-color: #333;
     margin-bottom   : 30px;
 }
-
-
-/*
-main div{
-    background-color: #ffb33a;
-}*/
-
 
 main h2 {
     text-align: center;
@@ -181,8 +169,8 @@ section {
     position        : relative;
     display         : inline-block;
     float           : left;
-    width           : 28%;
-    margin          : 2%;
+    width           : 92%;
+    margin          : 4%;
     background-color: #666
 }
 
@@ -192,11 +180,6 @@ section::before {
     content    : "";
     display    : block;
     padding-top: 100%;
-}
-
-section:nth-child(3n +1) {
-    clear      : left;
-    margin-left: 4%;
 }
 
 section:last-child {
@@ -233,13 +216,13 @@ section:hover article {
 }
 
 article div {
-    margin: 20px;
+    margin: 60px;
 }
 
 /*FOOTER*/
 
 footer {
-    margin          : 30px;
+    margin          : 20px;
     padding         : 40px;
     background-color: #ffb33a;
     text-align      : center
@@ -253,33 +236,32 @@ footer a {
 
 h2 {
     font-family: LemonMilklight;
-    font-size  : 200%;
+    font-size  : 500%;
 }
 
-main h2{
-    font-size: 300%;
+main h2 {
+    font-size: 500%;
 }
 
-h3{
-    font-size: 100%;
+h3 {
+    font-size: 400%;
 }
 
 p {
-    font-size: 100%;
+    font-size: 250%;
 }
 
-main p{
-    position: relative;
-    top: -1em;
-    font-size: 80%;
+main p {
+    position : relative;
+    top      : -1em;
+    font-size: 250%;
 }
 
-footer p{
-    font-size: 150%;
+footer p {
+    font-size: 250%;
 }
 
-
-@media (min-width: 1000px) {
+@media (min-width: 63em) {
 
     /*ALLGEMEINES*/
 
@@ -296,79 +278,13 @@ footer p{
 
     /*BURGER-NAVIGATION*/
 
-    header div {
-        z-index         : 50;
-        position        : fixed;
-        top             : -8px;
-        left            : -3px;
-        background-color: #000;
-        width           : 19%;
-        height          : 160px;
-    }
-
-    nav {
-        position: fixed;
-        z-index : 111;
-        width   : 100%;
-    }
-
     ul {
-        position       : fixed;
-        display        : none;
-        width          : 300px;
-        top            : 121px;
-        left           : -15px;
-        text-decoration: none;
-        list-style     : none;
-        font-size      : 200%;
-    }
-
-    #Burger {
-        position: fixed;
-        left    : 20px;
-        top     : -23px;
-        width   : 110px;
-        height  : auto;
-        padding : 10px;
-    }
-
-    #Burger:hover+ul {
-        display: block;
-    }
-
-    ul:hover {
-        display: block;
-    }
-
-    li {
-        padding         : 10px;
-        padding-left    : 30px;
-        display         : block;
-        background-color: #ffb33a;
-        color           : #fff;
-    }
-
-    li:hover {
-        display         : block;
-        background-color: #c47a03;
-    }
-
-    a {
-        text-decoration: none;
-        color          : #fff;
+        top      : 121px;
+        width    : 300px;
+        font-size: 200%;
     }
 
     /*UBERSCHRIFT UND ÄHNLICHES*/
-
-    #Signature {
-        width         : 150px;
-        height        : auto;
-        display       : block;
-        margin-left   : auto;
-        margin-right  : auto;
-        padding-top   : 150px;
-        padding-bottom: 90px
-    }
 
     #UEBERschrift {
         position      : relative;
@@ -395,21 +311,150 @@ footer p{
         padding-bottom: 50px
     }
 
-    #Ornament {
+    /*ASIDES/UNTENDRUNTERS*/
+
+    #links {
+        text-align: left;
+        position: relative;
+        display : inline-block;
+        float   : left;
+        width   : 28%;
+    }
+
+    #rechts {
+        text-align: center;
+        float     : unset;
+        width     : 100%;
+    }
+
+
+    /*HAUPTSEITE*/
+
+    main {
+        width: 72%;
+    }
+
+    section {
+        position        : relative;
+        display         : inline-block;
+        float           : left;
+        width           : 44%;
+        margin          : 2%;
+        background-color: #666
+    }
+
+    /*Zeug um dinger immer quadratisch zu haben*/
+
+    section::before {
+        content    : "";
+        display    : block;
+        padding-top: 100%;
+    }
+
+    section:nth-child(2n +1) {
+        clear      : left;
+        margin-left: 4%;
+    }
+
+    section:last-child {
+        margin-bottom: 4%;
+    }
+
+    /*Section "Befüllung"*/
+
+    article div {
+        margin: 20px;
+    }
+
+    /*FOOTER*/
+
+    footer {
+        margin : 30px;
+        padding: 40px;
+    }
+
+    /*SCHRIFTGÖSSEN*/
+
+    h2 {
+        font-size: 200%;
+    }
+
+    main h2 {
+        font-size: 300%;
+    }
+
+    h3 {
+        font-size: 100%;
+    }
+
+    p {
+        font-size: 100%;
+    }
+
+    main p {
+        position : relative;
+        top      : -1em;
+        font-size: 80%;
+    }
+
+    footer p {
+        font-size: 150%;
+    }
+
+
+}
+
+@media (min-width: 90em) {
+
+    /*ALLGEMEINES*/
+
+    body {
+        font-family     : LemonMilk;
+        background-color: #000;
+        color           : #fff;
+    }
+
+    header {
+        z-index : 100;
+        position: relative;
+    }
+
+    /*BURGER-NAVIGATION*/
+
+    ul {
+        top      : 121px;
+        width    : 300px;
+        font-size: 200%;
+    }
+
+    /*UBERSCHRIFT UND ÄHNLICHES*/
+
+    #UEBERschrift {
+        position      : relative;
+        top           : 48px;
+        font-family   : LemonMilklight;
+        font-size     : 200%;
+        letter-spacing: 17px;
         text-align    : center;
-        font-size     : 250%;
-        padding-bottom: 90px;
+
+    }
+
+    h1 {
+        font-family   : LemonMilklight;
+        font-size     : 500%;
+        letter-spacing: 20px;
+        text-align    : center;
+        padding-bottom: 50px
+    }
+
+    #Slogan {
+        text-align    : center;
+        padding-left  : 37%;
+        padding-right : 37%;
+        padding-bottom: 50px
     }
 
     /*ASIDES/UNTENDRUNTERS*/
-
-    aside {
-        color: #666;
-    }
-
-    aside * {
-        padding: 15px;
-    }
 
     #links {
         position: relative;
@@ -426,27 +471,30 @@ footer p{
         width     : 19%;
     }
 
-
     /*HAUPTSEITE*/
 
     main {
-        display         : inline-block;
-        float           : unset;
-        width           : 60%;
-        background-color: #333;
-        margin-bottom   : 30px;
+        width: 60%;
     }
 
+    /*ALTE SECTION AUFTEILUNG ENTFERNEN*/
 
-    /*
-    main div{
-        background-color: #ffb33a;
-    }*/
-
-
-    main h2 {
-        text-align: center;
+    section::before {
+        content    : "";
+        display    : block;
+        padding-top: 100%;
     }
+
+    section:nth-child(2n +1) {
+        clear      : unset;
+        margin-left: 2%;
+    }
+
+    section:last-child {
+        margin-bottom: 4%;
+    }
+
+    /*ENDE UM ALTE DINGER ZU ENTFERNEN*/
 
     section {
         position        : relative;
@@ -476,32 +524,168 @@ footer p{
 
     /*Section "Befüllung"*/
 
-    section img {
-        position: absolute;
-        top     : 0;
-        bottom  : 0;
-        left    : 0;
-        right   : 0;
-        width   : 90%;
-        height  : 90%;
-        padding : 5%;
+    article div {
+        margin: 20px;
     }
 
-    article {
-        position        : absolute;
-        top             : 50%;
-        bottom          : 0;
-        left            : 0;
-        right           : 0;
-        display         : none;
-        width           : 100%;
-        height          : 50%;
-        background-color: #00000040
+    /*FOOTER*/
+
+    footer {
+        margin : 30px;
+        padding: 40px;
     }
 
-    section:hover article {
-        display: block;
+    /*SCHRIFTGÖSSEN*/
+
+    h2 {
+        font-size: 200%;
     }
+
+    main h2 {
+        font-size: 300%;
+    }
+
+    h3 {
+        font-size: 100%;
+    }
+
+    p {
+        font-size: 100%;
+    }
+
+    main p {
+        position : relative;
+        top      : -1em;
+        font-size: 80%;
+    }
+
+    footer p {
+        font-size: 150%;
+    }
+
+}
+
+
+@media (min-width: 140em) {
+
+    /*ALLGEMEINES*/
+
+    body {
+        font-family     : LemonMilk;
+        background-color: #000;
+        color           : #fff;
+    }
+
+    header {
+        z-index : 100;
+        position: relative;
+    }
+
+    /*BURGER-NAVIGATION*/
+
+    ul {
+        top      : 121px;
+        width    : 300px;
+        font-size: 200%;
+    }
+
+    /*UBERSCHRIFT UND ÄHNLICHES*/
+
+    #UEBERschrift {
+        position      : relative;
+        top           : 48px;
+        font-family   : LemonMilklight;
+        font-size     : 200%;
+        letter-spacing: 17px;
+        text-align    : center;
+
+    }
+
+    h1 {
+        font-family   : LemonMilklight;
+        font-size     : 500%;
+        letter-spacing: 20px;
+        text-align    : center;
+        padding-bottom: 50px
+    }
+
+    #Slogan {
+        text-align    : center;
+        padding-left  : 37%;
+        padding-right : 37%;
+        padding-bottom: 50px
+    }
+
+    /*ASIDES/UNTENDRUNTERS*/
+
+    #links {
+        position: relative;
+        display : inline-block;
+        float   : left;
+        width   : 19%;
+    }
+
+    #rechts {
+        text-align: right;
+        position  : relative;
+        display   : inline-block;
+        float     : right;
+        width     : 19%;
+    }
+
+    /*HAUPTSEITE*/
+
+    main {
+        width: 60%;
+    }
+
+    /*ALTE SECTION AUFTEILUNG ENTFERNEN*/
+
+    section::before {
+        content    : "";
+        display    : block;
+        padding-top: 100%;
+    }
+
+    section:nth-child(3n +1) {
+        clear      : unset;
+        margin-left: 1%;
+    }
+
+    section:nth-child(2n +1) {
+        clear      : unset;
+        margin-left: 1%;
+    }
+
+    /*ENDE UM ALTE DINGER ZU ENTFERNEN*/
+
+    section {
+        position        : relative;
+        display         : inline-block;
+        float           : left;
+        width           : 22.5%;
+        margin          : 1%;
+        background-color: #666
+    }
+
+    /*Zeug um dinger immer quadratisch zu haben*/
+
+    section::before {
+        content    : "";
+        display    : block;
+        padding-top: 100%;
+    }
+
+    section:nth-child(4n +1) {
+        clear      : left;
+        margin-left: 2%;
+    }
+
+    section:last-child {
+        margin-bottom: 2%;
+    }
+
+    /*Section "Befüllung"*/
 
     article div {
         margin: 20px;
@@ -510,28 +694,21 @@ footer p{
     /*FOOTER*/
 
     footer {
-        margin          : 30px;
-        padding         : 40px;
-        background-color: #ffb33a;
-        text-align      : center
-    }
-
-    footer a {
-        color: #03f
+        margin : 30px;
+        padding: 40px;
     }
 
     /*SCHRIFTGÖSSEN*/
 
     h2 {
-        font-family: LemonMilklight;
-        font-size  : 200%;
+        font-size: 200%;
     }
 
-    main h2{
+    main h2 {
         font-size: 300%;
     }
 
-    h3{
+    h3 {
         font-size: 100%;
     }
 
@@ -539,15 +716,14 @@ footer p{
         font-size: 100%;
     }
 
-    main p{
-        position: relative;
-        top: -1em;
+    main p {
+        position : relative;
+        top      : -1em;
         font-size: 80%;
     }
 
-    footer p{
+    footer p {
         font-size: 150%;
     }
-
 
 }
