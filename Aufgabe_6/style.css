@@ -119,6 +119,7 @@ h1 {
 }
 
 #Slogan {
+    display: none;
     text-align    : center;
     padding-left  : 5%;
     padding-right : 5%;
@@ -305,6 +306,7 @@ footer p {
     }
 
     #Slogan {
+        display: block;
         text-align    : center;
         padding-left  : 37%;
         padding-right : 37%;
