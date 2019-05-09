@@ -315,10 +315,10 @@ footer p {
 
     #links {
         text-align: left;
-        position: relative;
-        display : inline-block;
-        float   : left;
-        width   : 28%;
+        position  : relative;
+        display   : inline-block;
+        float     : left;
+        width     : 28%;
     }
 
     #rechts {
