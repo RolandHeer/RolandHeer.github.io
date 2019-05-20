@@ -1,10 +1,10 @@
-console.log("Konsolentest");
+console.log("Noch is es nicht ganz soweit");
 
-window.onload = function{
-    console.log("das  Fenster wurde geladen")
-    document.getElementById("Penisbutton").addEventListener("click", sagwas);
+window.onload = function(){
+    console.log("So, jetzt ist s geladen! - Viel Spaß");
+    document.getElementById("Penisbutton").addEventListener("click", ButtonEvent);
 }
 
-function sagwas() {
-    console.log("dies ist ein Penisbutton")
+function ButtonEvent() {
+    console.log("dies ist ein Penisbutton");
 }
