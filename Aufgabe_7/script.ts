@@ -3,6 +3,8 @@ let ZaehlerMax: number = 10;
 let DieZahl: number = 0;
 let stepsClassName: number = 0;
 
+let validator: boolean = false;
+
 console.log("Noch is es nicht ganz soweit");
 console.log("");
 
@@ -13,6 +15,19 @@ window.onload = function () {
     document.getElementById("DIV_I").addEventListener("click", Clicker);
     document.getElementById("DIV_III").addEventListener("click", ChangeClassName);
     document.getElementById("ParaMaker").addEventListener("click", addElements);
+    NeuerButton();
+    console.log(""+Addierer(5,6));
+    console.log("");
+}
+
+function NeuerButton() {
+    let newButton = document.createElement("button");
+    let position = document.getElementById("body");
+
+    position.appendChild(newButton);
+    newButton.id = "neuerButtonTS";
+    newButton.innerHTML = "DER NEUE BUTTON";
+    newButton.addEventListener("click", changeName);
 }
 
 function LadeFunktion() {
@@ -28,7 +43,7 @@ function LadeFunktion() {
 }
 
 function UnsinnigeRechnungen() {
-    let derErsteString: string = "Die Rechnung ";
+    let derErsteString: string = "Die Antwort ";
     let derZweiteString: string = "ist gut";
     let dieErsteNummer: number = 4711;
     let dieZweiteNummer: number = 42;
@@ -45,18 +60,32 @@ function UnsinnigeRechnungen() {
     console.log("")
 }
 
-function addElements(){
+function addElements() {
     addElement("DIV_II");
     addElement("DIV_IV");
 }
 
-function addElement(ID: string){
+function addElement(ID: string) {
     let newPara = document.createElement("p");
     let position = document.getElementById(ID)
 
     position.appendChild(newPara);
-    newPara.innerHTML = "Das ist ja ein neuer Paragraf durch TS!!!"
+    newPara.innerHTML = "Das ist ja ein neuer Paragraf durch TS!!!";
 
+}
+
+function changeName() {
+    if (validator == false) {
+        document.getElementById("neuerButtonTS").innerHTML = "Neuerer Button";
+        validator = true;
+    } else {
+        let Meldung = document.createElement("p");
+        let position = document.getElementById("body");
+
+        position.appendChild(Meldung);
+        Meldung.className = "Meldung";
+        Meldung.innerHTML = "!!Du hast schonmal eine Namensaenderung durchgefuehrt...!!";
+    }
 }
 
 function ZaehlerBis() {
@@ -88,17 +117,27 @@ function ChangeClassName() {
             break;
         case 1: stepsClassName++;
             document.getElementById("Klassenwandler").className = "dieZweiteVerwandlung";
-            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II); break;
+            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II);
+            break;
         case 2: stepsClassName++;
             document.getElementById("Klassenwandler").className = "dieDritteVerwandlung";
-            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II); break;
+            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II);
+            break;
         case 3: stepsClassName++;
             document.getElementById("Klassenwandler").className = "dieVierteVerwandlung";
-            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II); break;
+            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II);
+            break;
         case 4: stepsClassName = 0;
             document.getElementById("Klassenwandler").className = "dieLetzteVerwandlung";
-            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II); break;
+            console.log(standardText_I + document.getElementById("Klassenwandler").className + standardText_II);
+            break;
 
         default: console.log("hier ist wohl etwas schief gegangen (・・;)")
-    }
+    }    
+}
+
+function Addierer(value_I: number, value_II: number): number {
+    let addedValues: number = value_I + value_II;
+    console.log("///////////Dieser Wert wurde von einer Separaten Funktion erstellt und wurde anschliessend returned////////")
+    return addedValues;
 }
