@@ -4,6 +4,35 @@ let DieZahl: number = 0;
 let stepsClassName: number = 0;
 
 console.log("Noch is es nicht ganz soweit");
+console.log("");
+
+window.onload = function () {
+    console.log("So, jetzt ist s geladen! - Viel Spass");
+    LadeFunktion();
+    UnsinnigeRechnungen();
+    document.getElementById("DIV_I").addEventListener("click", Clicker);
+    addElement("DIV_II");
+    document.getElementById("DIV_III").addEventListener("click", ChangeClassName);
+    addElement("DIV_IV");
+}
+
+function LadeFunktion() {
+    console.log("");
+    console.log("////////////////DIE LADEFUNKTION WURDE INITIIERT//////////////////");
+    console.log("");
+    console.log("Vielen Dank dass Sie den Zaehler aktiviert haben");
+    ZaehlerBis();
+    console.log("Wie Sie gesehen haben zaehlt dieser auf " + ZaehlerMax + " - lol");
+    console.log("");
+    console.log("////////////////DAS WAR DIE LADEFUNKTION//////////////////");
+    console.log("");
+}
+
+function UnsinnigeRechnungen() {
+    let derErsteString: string = "Die Rechnung ";
+    let derZweiteString: string = "ist gut";
+    let dieErsteNummer: number = 4711;
+    let dieZweiteNummer: number = 42;
 
     console.log("")
     console.log("////////////////HIER KOMMEN UNSINNIGE RECHNUNGEN//////////////////")
@@ -15,6 +44,14 @@ console.log("Noch is es nicht ganz soweit");
     console.log("")
     console.log("///////////////ENDE DER UNSINNIGE RECHNUNGEN//////////////////")
     console.log("")
+}
+
+function addElement(ID: string){
+    let newDiv = document.createElement("div");
+    let newPara = document.createTextNode("Test");
+    newDiv.appendChild(newPara);
+    let DivAktuell = document.getElementById(ID);
+    document.body.insertBefore(newDiv, DivAktuell);
 }
 
 function ZaehlerBis() {
