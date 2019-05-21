@@ -11,9 +11,8 @@ window.onload = function () {
     LadeFunktion();
     UnsinnigeRechnungen();
     document.getElementById("DIV_I").addEventListener("click", Clicker);
-    addElement("DIV_II");
     document.getElementById("DIV_III").addEventListener("click", ChangeClassName);
-    addElement("DIV_IV");
+    document.getElementById("ParaMaker").addEventListener("click", addElements);
 }
 
 function LadeFunktion() {
@@ -46,12 +45,18 @@ function UnsinnigeRechnungen() {
     console.log("")
 }
 
+function addElements(){
+    addElement("DIV_II");
+    addElement("DIV_IV");
+}
+
 function addElement(ID: string){
-    let newDiv = document.createElement("div");
-    let newPara = document.createTextNode("Test");
-    newDiv.appendChild(newPara);
-    let DivAktuell = document.getElementById(ID);
-    document.body.insertBefore(newDiv, DivAktuell);
+    let newPara = document.createElement("p");
+    let position = document.getElementById(ID)
+
+    position.appendChild(newPara);
+    newPara.innerHTML = "Das ist ja ein neuer Paragraf durch TS!!!"
+
 }
 
 function ZaehlerBis() {

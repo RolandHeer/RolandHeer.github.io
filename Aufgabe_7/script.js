@@ -4,15 +4,51 @@ let DieZahl = 0;
 let stepsClassName = 0;
 console.log("Noch is es nicht ganz soweit");
 console.log("");
-console.log("////////////////HIER KOMMEN UNSINNIGE RECHNUNGEN//////////////////");
-console.log("");
-console.log(derErsteString + derZweiteString);
-console.log(derErsteString + dieZweiteNummer);
-console.log(dieErsteNummer + derZweiteString);
-console.log(dieErsteNummer + dieZweiteNummer);
-console.log("");
-console.log("///////////////ENDE DER UNSINNIGE RECHNUNGEN//////////////////");
-console.log("");
+window.onload = function () {
+    console.log("So, jetzt ist s geladen! - Viel Spass");
+    LadeFunktion();
+    UnsinnigeRechnungen();
+    document.getElementById("DIV_I").addEventListener("click", Clicker);
+    document.getElementById("DIV_III").addEventListener("click", ChangeClassName);
+    document.getElementById("ParaMaker").addEventListener("click", addElements);
+};
+function LadeFunktion() {
+    console.log("");
+    console.log("////////////////DIE LADEFUNKTION WURDE INITIIERT//////////////////");
+    console.log("");
+    console.log("Vielen Dank dass Sie den Zaehler aktiviert haben");
+    ZaehlerBis();
+    console.log("Wie Sie gesehen haben zaehlt dieser auf " + ZaehlerMax + " - lol");
+    console.log("");
+    console.log("////////////////DAS WAR DIE LADEFUNKTION//////////////////");
+    console.log("");
+}
+function UnsinnigeRechnungen() {
+    let derErsteString = "Die Rechnung ";
+    let derZweiteString = "ist gut";
+    let dieErsteNummer = 4711;
+    let dieZweiteNummer = 42;
+    console.log("");
+    console.log("////////////////HIER KOMMEN UNSINNIGE RECHNUNGEN//////////////////");
+    console.log("");
+    console.log(derErsteString + derZweiteString);
+    console.log(derErsteString + dieZweiteNummer);
+    console.log(dieErsteNummer + derZweiteString);
+    console.log(dieErsteNummer + dieZweiteNummer);
+    console.log("");
+    console.log("///////////////ENDE DER UNSINNIGE RECHNUNGEN//////////////////");
+    console.log("");
+}
+function addElements() {
+    addElement("DIV_II");
+    addElement("DIV_IV");
+}
+function addElement(ID) {
+    let newPara = document.createElement("p");
+    let position = document.getElementById(ID);
+    position.appendChild(newPara);
+    newPara.innerHTML = "Das ist ja ein neuer Paragraf durch TS!!!";
+}
 function ZaehlerBis() {
     let zaehler = 0;
     while (zaehler <= ZaehlerMax) {
