@@ -1,0 +1,61 @@
+@font-face {
+    font-family: LemonMilk;
+    src        : url(Fonts/LemonMilk.otf) format('opentype')
+}
+
+@font-face {
+    font-family: LemonMilklight;
+    src        : url(Fonts/LemonMilklight.otf) format('opentype')
+}
+
+body {
+    font-family     : LemonMilklight;
+    background-color: #cdf6cf;
+    color           : #cdf6cf;
+}
+
+header {
+    position: relative;
+    top: -2em;
+    letter-spacing: 0.175em;
+}
+
+header div {
+    position        : relative;
+    top             : -2em;
+    left            : -5%;
+    width           : 110%;
+    padding-top     : 0.5em;
+    background-color: #a9cbab;
+    text-align      : center;
+}
+
+header h2 {
+    position  : relative;
+    top       : 0.25em;
+    font-size : 4em;
+    text-align: center;
+}
+
+header h1 {
+    position: relative;
+    top: -3.5em;
+    font-size: 1.62em;
+    text-align: center;
+    color: #a9cbab;
+}
+
+#MainSite h2{
+    position: relative;
+    top: 0.25em;
+    font-size: 2em;
+    text-align: center;
+}
+
+#MainSite h1{
+    position: relative;
+    top: -1.55em;
+    font-size: 3em;
+    text-align: center;
+    color: #a9cbab;
+}
