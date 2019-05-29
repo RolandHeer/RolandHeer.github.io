@@ -8,16 +8,27 @@
     src        : url(Fonts/LemonMilklight.otf) format('opentype')
 }
 
+/* GENERELLES */
+
 body {
+    z-index: -4;
     font-family     : LemonMilklight;
     background-color: #cdf6cf;
+    background-color: #555;
     color           : #cdf6cf;
 }
 
+/* HEADER */
+
 header {
-    position: relative;
-    top: -2em;
+    position      : relative;
+    top           : -2em;
     letter-spacing: 0.175em;
+}
+
+#MainSite {
+    position: relative;
+    top     : 0em;
 }
 
 header div {
@@ -37,25 +48,201 @@ header h2 {
     text-align: center;
 }
 
+#MainSite h2 {
+    position      : relative;
+    top           : 0.25em;
+    font-size     : 2.2em;
+    letter-spacing: 0.25em;
+    text-align    : center;
+}
+
 header h1 {
-    position: relative;
-    top: -3.5em;
-    font-size: 1.62em;
+    position  : relative;
+    top       : -3.5em;
+    font-size : 1.62em;
     text-align: center;
+    color     : #a9cbab;
+}
+
+#MainSite h1 {
+    position  : relative;
+    top       : -1.55em;
+    font-size : 3em;
+    text-align: center;
+    color     : #a9cbab;
+}
+
+header p {
+    position  : relative;
+    top       : -5em;
+    font-size : 1em;
+    text-align: center;
+    color     : #a9cbab;
+}
+
+/* Navigation */
+
+nav {
+}
+
+#Burger {
+    position: fixed;
+    top     : -2em;
+    width   : 3.8em;
+    padding : 10px;
+    height  : auto
+}
+
+header ul {
+    position       : fixed;
+    top            : 1.3em;
+    left           : -0.75em;
+    /*display        : none;*/
+    width          : 13em;
+    text-decoration: none;
+    list-style     : none;
+    font-size      : 2em;
+}
+
+#Burger:hover+ul {
+    display: block;
+}
+
+header ul:hover {
+    display: block;
+}
+
+header ul::before{
+    z-index: -1;
+    content: '';
+    height: 100%;
+    width: 13em;
+    padding: 0%;
+    position: absolute;
+    top: 0em;
+    left: 1.25em;
+    background-color: rgba(255, 255, 255, 0.295);
+}
+
+header li {
+    position: relative;
+    display: block;
+    z-index: 10;
+    padding     : 0.4em;
+    padding-left: 1em;
+}
+
+header li:hover{
+    z-index: -20;
+}
+
+header ul:hover
+
+
+
+header a {
+    text-decoration: none;
+}
+
+/*Dummsinn*/
+
+header #Main{
+    background-color: #cdf6cf;
+}
+header #Main:hover{
+
+}
+header #Main a{
     color: #a9cbab;
 }
 
-#MainSite h2{
-    position: relative;
-    top: 0.25em;
-    font-size: 2em;
-    text-align: center;
+header #Audio {
+    background-color: #d16692;
+}
+header #Audio a{
+    color           : #aa3465;
 }
 
-#MainSite h1{
-    position: relative;
-    top: -1.55em;
-    font-size: 3em;
-    text-align: center;
-    color: #a9cbab;
+header #Video {
+    background-color: #f17272;
+}
+header #Video a{
+    color           : #b63b3b;
+}
+
+header #BWL {
+    background-color: #7a91af;
+}
+header #BWL a{
+    color           : #4b678b;
+}
+
+header #Anal {
+    background-color: #7aebb6;
+}
+header #Anal a{
+    color           : #59a582;
+}
+
+header #Psycho {
+    background-color: #72cdf1;
+}
+header #Psycho a{
+    color           : #4695b4;
+}
+
+header #EIA {
+    background-color: #ffcb7e;
+}
+header #EIA a{
+    color           : #b38d54;
+}
+
+header #Gest {
+    background-color: #c48bfa;
+}
+header #Gest a{
+    color           : #8558af;
+}
+
+
+
+
+
+
+
+/*
+#Audio {
+    background-color: #d16692;
+    color           : #c9487e;
+}
+
+#Video {
+    background-color: #f17272;
+    color           : #b63b3b;
+}
+
+#BWL {
+    background-color: #7a91af;
+    color           : #4b678b;
+}
+
+#Anal {
+    background-color: #7aebb6;
+    color           : #59a582;
+}
+
+#Psycho {
+    background-color: #72cdf1;
+    color           : #4695b4;
+}
+
+#EIA {
+    background-color: #ffcb7e;
+    color           : #b38d54;
+}
+
+#Gest {
+    background-color: #c48bfa;
+    color           : #8558af;
 }
