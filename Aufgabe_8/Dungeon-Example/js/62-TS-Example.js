@@ -1,8 +1,4 @@
-// BEISPIEL UND AUFGABE:
-// Dieses Skript soll als Beispiel dazu dienen, wie Interfaces und Arrays genutzt werden können.
-// Hier wird ein ungefährer Aufbau eines simplen Klick-Spiels gezeigt. Der Nutzer kann dabei durch Button ein neues Monster erstellen.
-// Zu beginn werden hier zuerst Interfaces, danach Variablen deklariert.
-// Weiter unten kommen dann die Funktionen.
+//////////////WArum Kompiliert es nicht\\\\\\\\\\\\\\\\\\
 // ------- Variablen -------- //
 // INSGESAMT EINGEBAUTE FEHLER bei den Variablen: I (1 / einer)
 let monsterHolder = "monsterHoldingCell"; // ID für das Haupt-Element, in welchem die Monster sich befinden werden. Wird vielleicht mehrfach in dem Skript gebraucht, deshalb einmalig definitiert.
@@ -23,8 +19,9 @@ console.log(monsterArray); // Gebe das Monster-Array einmal zu beginn aus. Es so
 window.onload = function () {
     document.getElementById("monsterSpawner").addEventListener("click", generateMonster, false);
     updatePlayerLevel(); // Zu Anfang wird durch eine Funktion ein HTML-Element mit Inhalt befüllt.
+    console.log("" + document.getElementById("monsterSpawner").innerHTML); ///////////////////MONSTERSPAWNER BUTTONINHALT KANN NICHT AUSGEGEBEN WERDEN WENN DAS ELEMENT NOCH NICHT ERSTELLT WURDE\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 };
-console.log(document.getElementById("monsterSpawner").innerHTML);
+//Lolo
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
 // Generiert ein neues Monster. Dieses wird zu dem Monster-Array hinzugefügt.
 // Ruft eine Funktion auf, welche dann das entsprechende HTML erzeugt.
@@ -38,7 +35,6 @@ function generateMonster() {
         monsterHealthPoints: newMonsterHP,
         monsterExperience: newMonsterXP,
         monsterModifier: newMonsterModifier,
-        monsterMoney: 0,
     };
     monsterArray.push(newMonster); // Monster wird erst in diesem Schritt zu dem Array hinzugefügt 
     console.log(monsterArray[-1].monsterExperience); // Man kann nur auf Array-Teile zugreifen, welche definiert sind. -1 ist nicht definitiert (und wird es auch nie sein).

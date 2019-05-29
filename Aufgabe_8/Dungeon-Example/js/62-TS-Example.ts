@@ -1,3 +1,5 @@
+//////////////WArum Kompiliert es nicht\\\\\\\\\\\\\\\\\\
+
 // BEISPIEL UND AUFGABE:
 // Dieses Skript soll als Beispiel dazu dienen, wie Interfaces und Arrays genutzt werden können.
 // Hier wird ein ungefährer Aufbau eines simplen Klick-Spiels gezeigt. Der Nutzer kann dabei durch Button ein neues Monster erstellen.
@@ -57,6 +59,7 @@ window.onload = function () {
     console.log(""+document.getElementById("monsterSpawner").innerHTML);                                   ///////////////////MONSTERSPAWNER BUTTONINHALT KANN NICHT AUSGEGEBEN WERDEN WENN DAS ELEMENT NOCH NICHT ERSTELLT WURDE\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 }
 
+//Lolo
 
 // Die Hauptfunktion, um ein Monster zu erstellen. Wird von einem Button ausgerufen.
 // Generiert ein neues Monster. Dieses wird zu dem Monster-Array hinzugefügt.
