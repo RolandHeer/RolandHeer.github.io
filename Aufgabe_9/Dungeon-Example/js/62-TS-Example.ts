@@ -118,10 +118,9 @@ function updateHTML() {
 function clearMonsterCell() {
     console.log("");
     let monsterHoldingDiv: HTMLElement = document.getElementById(monsterHolder);
-    if (monsterHoldingDiv.hasChildNodes()) {
-        while (monsterHoldingDiv.firstChild) {
-            monsterHoldingDiv.removeChild(monsterHoldingDiv.firstChild);
-        }
+    while (monsterHoldingDiv.firstChild) {
+        monsterHoldingDiv.removeChild(monsterHoldingDiv.firstChild);
+
     }
     console.log("alles geleert");
 }
@@ -152,6 +151,10 @@ function monsterGenerateHTML(count: number) {
     let monsterHealth: HTMLElement = document.createElement("p");
     monsterHealth.innerHTML = "Health: " + monsterArray[count - 1].monsterHealthPoints;
     holdingDiv.appendChild(monsterHealth);
+
+    let monsterXP: HTMLElement = document.createElement("p");
+    monsterXP.innerHTML = "XP: " + monsterArray[count - 1].monsterExperience;
+    holdingDiv.appendChild(monsterXP);
 
     let imgDiv: HTMLElement = document.createElement("div");            //Neues Div, um Bilder uniformer zu gestalten.
     imgDiv.setAttribute("class", "imgHolder");
@@ -264,7 +267,7 @@ function generateNewImageSource(MonsterName: number) {
 // Aufgerufen, wenn man auf den Button klickt.
 // Der Spieler kämpft gegen das entsprechende Monster. Er erhält dann Erfahrungspunkte.
 function fightMonster(_index: number) {
-   
+
     console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
 
     playerXP += monsterArray[_index - 1].monsterExperience;                 	    // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
@@ -272,7 +275,7 @@ function fightMonster(_index: number) {
     updatePlayerItems(monsterArray[_index - 1].Item);
     updatePlayerLevel(monsterArray[_index - 1].Item);
 
-    monsterArray.splice(_index-1,1);
+    monsterArray.splice(_index - 1, 1);
 
     updateHTML();
 }
