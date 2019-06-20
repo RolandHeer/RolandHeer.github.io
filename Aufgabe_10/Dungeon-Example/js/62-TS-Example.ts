@@ -201,7 +201,7 @@ function generateMonsterXP(): number {
 }
 
 function generateMonsterLvl(newMonsterXP: number): number {
-    return Math.floor(((newMonsterXP - 250) / 75) + 1);
+    return Math.floor(((newMonsterXP - 250) / (750 / 11)));
 }
 
 
@@ -240,16 +240,16 @@ function fightAllMonsters() {
 
 function fightAllWeakMonsters() {
     for (let i: number = monsterArray.length; i > 0; i--) {
-        if (playerLvl > monsterArray[i-1].monsterLvl) {
+        if (playerLvl > monsterArray[i - 1].monsterLvl) {
             fightMonster(i);
         }
     }
 }
 
 function fightWeakestMonster() {
-    let tempWeakest: number = 0;
+    let tempWeakest: number = monsterArray.length;
     for (let i: number = monsterArray.length; i > 0; i--) {
-        if (monsterArray[tempWeakest].monsterLvl > monsterArray[i-1].monsterLvl)
+        if (monsterArray[tempWeakest - 1].monsterLvl > monsterArray[i - 1].monsterLvl)
             tempWeakest = i;
     }
     fightMonster(tempWeakest);
@@ -257,28 +257,15 @@ function fightWeakestMonster() {
 
 function fightSame() {
     for (let i: number = monsterArray.length; i > 0; i--) {
-        if (playerLvl == monsterArray[i-1].monsterLvl) {
+        if (playerLvl == monsterArray[i - 1].monsterLvl) {
             fightMonster(i);
         }
     }
 }
 
 function fightMonster(_index: number) {
-
-    if (playerLvl > monsterArray[_index - 1].monsterLvl) {
-        console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
-
-        updatePlayerXP(monsterArray[_index - 1].monsterExperience)
-
-        updatePlayerItems(monsterArray[_index - 1].Item);
-        updatePlayerLevel(monsterArray[_index - 1].Item);
-
-        monsterArray.splice(_index - 1, 1);
-
-        updateHTML();
-    } else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
-        console.log("huch da hat ja jemand das gleiche Level");
-        if (Math.random() > 0.2) {
+    if (monsterArray.length > 0) {
+        if (playerLvl > monsterArray[_index - 1].monsterLvl) {
             console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
 
             updatePlayerXP(monsterArray[_index - 1].monsterExperience)
@@ -289,16 +276,30 @@ function fightMonster(_index: number) {
             monsterArray.splice(_index - 1, 1);
 
             updateHTML();
-        } else {
-            if (Math.random() > 0.5) {
-                console.log("du hast zwar verloren, aber ihr habt euch geeinigt, dass du deine Items behalten darfst")
+        } else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
+            console.log("huch da hat ja jemand das gleiche Level");
+            if (Math.random() > 0.4) {
+                console.log("puh da hast du ja nochmal Glück gehabt und gewonnen")
+                console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
+
+                updatePlayerXP(monsterArray[_index - 1].monsterExperience)
+
+                updatePlayerItems(monsterArray[_index - 1].Item);
+                updatePlayerLevel(monsterArray[_index - 1].Item);
+
+                monsterArray.splice(_index - 1, 1);
+
+                updateHTML();
             } else {
-                console.log("die Würfel sind gefallen, du hast verloren trotz gleichen Levels  ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
+                console.log("du hast zwar verloren, aber ihr habt euch geeinigt, dass du deine Items behalten darfst");
+                updatePlayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
+                updatePlayerLevel("nichts");
             }
+        } else {
+            console.log("du hast leider verloren   ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
+            updatePlayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
+            updatePlayerLevel("nichts");
         }
-    } else {
-        console.log("du hast leider verloren   ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
-        updatePlayerLevel(monsterArray[_index - 1].Item);
     }
 }
 
@@ -317,6 +318,8 @@ function updatePlayerLevel(neuesItem: string) {
 function updatePlayerXP(tempXP: number) {
     if (playerXP + tempXP > 0) {
         playerXP += tempXP;
+    } else {
+        playerXP = 0;
     }
 }
 
