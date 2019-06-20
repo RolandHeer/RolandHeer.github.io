@@ -6,6 +6,7 @@ let playerXP = 0; // Stellt die gesammelte Erfahrung des Spielers dar.          
 let playerLvl = 1;
 let playerXPperLevel = 624; // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 let playerItems = "Kurzschwert";
+let schonGewonnen = false;
 // Mehrere Arrays, welche jeweils Bauteile für Namen oder Eigenschaften der Monster beinhalten.
 let prefix = ["Wald-", "Seuchen-", "Uralte(s) ", "Gift-", "Brennende(s) ", "Kniescheibenzertrümmernde(s) ", "furchtlose(s)", "blutrünstige(s)", "Schlangen-", "hopsende(s)", "Eisverkaufende(s)"]; // length = 6, da 6 Einträge. Von 0-5.
 let monsterName = ["Ratte", "Ed von Schleck", "Ungeziefer", "Kommulitonin", "Beuteltier", "Eichhörnchen", "Spinne", "Kaninchen"]; // length = 3, da 3 Einträge. Von 0-2.
@@ -21,7 +22,8 @@ window.onload = function () {
     document.getElementById("fightAll").addEventListener("click", fightAllMonsters);
     document.getElementById("fightAllWeakest").addEventListener("click", fightAllWeakMonsters);
     document.getElementById("fightWeakest").addEventListener("click", fightWeakestMonster);
-    updatePlayerLevel("nichts", 0);
+    updatePlayerLevel("nichts");
+    document.getElementById("fightSame").addEventListener("click", fightSame);
     document.getElementById("Arraypusher").addEventListener("click", pusher);
 };
 function generateMonster() {
@@ -37,7 +39,7 @@ function generateMonster() {
         let newMonsterName = generateMonsterName(); // Eigens-gebaute Funktion, welche einen string zurück gibt.
         let newMonsterHP = generateMonsterHitPoints(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
         let newMonsterXP = generateMonsterXP(); // Eigens-gebaute Funktion, welche eine Zahl zurück gibt.
-        let newMonsterLvl = generateMonsterLvl();
+        let newMonsterLvl = generateMonsterLvl(newMonsterXP);
         let newMonsterModifier = generateMonsterModifer(); // Eigens-gebaute Funktion, welche ein string-Array zurück gibt.
         let newMonsterItem = generateMonsterItem();
         let newImageSource = saveImageSrc;
@@ -45,7 +47,7 @@ function generateMonster() {
             monsterName: newMonsterName,
             monsterHealthPoints: newMonsterHP,
             monsterExperience: newMonsterXP,
-            monsterLvl: 1,
+            monsterLvl: newMonsterLvl,
             monsterModifier: newMonsterModifier,
             Item: newMonsterItem,
             Bildpfad: newImageSource,
@@ -143,8 +145,8 @@ function generateMonsterXP() {
     let tempMonsterXP = 250 + getRNGNumber(700);
     return tempMonsterXP;
 }
-function generateMonsterLvl() {
-    return getRNGNumber(11);
+function generateMonsterLvl(newMonsterXP) {
+    return Math.floor(((newMonsterXP - 250) / 75) + 1);
 }
 // Wird für die Erstellung der Monster-Modifizierer aufgerufen.
 // Liefert ein Array mit zwei Einträgen zurück.
@@ -169,48 +171,78 @@ function generateNewImageSource(MonsterName) {
 }
 //////   KAMPFKLASSEN   \\\\\\
 function fightAllMonsters() {
+    for (let i = monsterArray.length; i > 0; i--) {
+        fightMonster(i);
+    }
 }
 function fightAllWeakMonsters() {
+    for (let i = monsterArray.length; i > 0; i--) {
+        if (playerLvl > monsterArray[i - 1].monsterLvl) {
+            fightMonster(i);
+        }
+    }
 }
 function fightWeakestMonster() {
+    let tempWeakest = 0;
+    for (let i = monsterArray.length; i > 0; i--) {
+        if (monsterArray[tempWeakest].monsterLvl > monsterArray[i - 1].monsterLvl)
+            tempWeakest = i;
+    }
+    fightMonster(tempWeakest);
+}
+function fightSame() {
+    for (let i = monsterArray.length; i > 0; i--) {
+        if (playerLvl == monsterArray[i - 1].monsterLvl) {
+            fightMonster(i);
+        }
+    }
 }
 function fightMonster(_index) {
     if (playerLvl > monsterArray[_index - 1].monsterLvl) {
         console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
-        playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+        updatePlayerXP(monsterArray[_index - 1].monsterExperience);
         updatePlayerItems(monsterArray[_index - 1].Item);
-        updatePlayerLevel(monsterArray[_index - 1].Item, 1);
+        updatePlayerLevel(monsterArray[_index - 1].Item);
         monsterArray.splice(_index - 1, 1);
         updateHTML();
     }
     else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
-        if (Math.random() > 0.5) {
+        console.log("huch da hat ja jemand das gleiche Level");
+        if (Math.random() > 0.2) {
             console.log("Du bekommst des Monsters ITEM! -> " + monsterArray[_index - 1].Item);
-            playerXP += monsterArray[_index - 1].monsterExperience; // _index ist in diesem Fall die Länge des Arrays - allerdings zählt der Computer beginnend von null, nicht eins! Deshalb _index-1.
+            updatePlayerXP(monsterArray[_index - 1].monsterExperience);
             updatePlayerItems(monsterArray[_index - 1].Item);
-            updatePlayerLevel(monsterArray[_index - 1].Item, 1);
+            updatePlayerLevel(monsterArray[_index - 1].Item);
             monsterArray.splice(_index - 1, 1);
             updateHTML();
         }
         else {
-            console.log("die Würfel sind gefallen, du hast verloren trotz gleichen Levels  ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
+            if (Math.random() > 0.5) {
+                console.log("du hast zwar verloren, aber ihr habt euch geeinigt, dass du deine Items behalten darfst");
+            }
+            else {
+                console.log("die Würfel sind gefallen, du hast verloren trotz gleichen Levels  ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
+            }
         }
     }
     else {
         console.log("du hast leider verloren   ┻━┻ ︵ヽ(`Д´)ﾉ︵ ┻━┻ ");
-        updatePlayerLevel(monsterArray[_index - 1].Item, -1);
+        updatePlayerLevel(monsterArray[_index - 1].Item);
     }
 }
 // Aufgerufen, um das HTML-Element, welches das Spieler-Level darstellt, zu erneuern.
-function updatePlayerLevel(neuesItem, IncrDecr) {
-    //playerLvl = Math.floor(playerXP / playerXPperLevel);                                                                           
-    if (playerLvl + IncrDecr >= 1) {
-        if (playerLvl + IncrDecr >= 20) {
-            alert("Du hasch gwonna' !");
-        }
-        playerLvl += IncrDecr;
-        document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLvl + " (XP: " + playerXP + " / " + playerXPperLevel * (playerLvl + 1) + ")     Items: " + playerItems; // Baue den String für die Spieler-Info zusammen          //////////////////////////zeigt jetzt nicht mehr an, wieviel XP benötigt werden für einen Level aufstieg, sondern, bei wieviel XP der Level erreicht wird\\\\\\\\\\\\\\\\
-        console.log("Spieler " + playerName + " hat nun Level " + playerLvl + "außerdem hat er ein(e) " + neuesItem + " bekommen!"); // Spieler-Level in der Konsole.
+function updatePlayerLevel(neuesItem) {
+    playerLvl = (Math.floor(playerXP / playerXPperLevel)) + 1;
+    if (playerLvl >= 20 && schonGewonnen == false) {
+        alert("Du hasch gwonna' !");
+        schonGewonnen = true;
+    }
+    document.getElementById("xpCounter").innerHTML = "Player-Level: " + playerLvl + " (XP: " + playerXP + " / " + playerXPperLevel * (playerLvl) + ")     Items: " + playerItems; // Baue den String für die Spieler-Info zusammen          //////////////////////////zeigt jetzt nicht mehr an, wieviel XP benötigt werden für einen Level aufstieg, sondern, bei wieviel XP der Level erreicht wird\\\\\\\\\\\\\\\\
+    console.log("Spieler " + playerName + " hat nun Level " + playerLvl + "außerdem hat er ein(e) " + neuesItem + " bekommen!"); // Spieler-Level in der Konsole.
+}
+function updatePlayerXP(tempXP) {
+    if (playerXP + tempXP > 0) {
+        playerXP += tempXP;
     }
 }
 //fügt demn Spieler neue Items hinzu

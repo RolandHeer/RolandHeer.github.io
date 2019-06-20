@@ -19,7 +19,7 @@ h1 {
 
 .monster {
 	width: 20em;
-	height: 31em;
+	height: 33em;
 }
 
 .imgHolder{
@@ -52,12 +52,6 @@ h1 {
 main div {
 	display: inline-block;
 }
-
-/*
-main > div > img {
-	width: 100%;
-}
-*/
 
 button {
 
