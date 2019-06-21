@@ -141,12 +141,11 @@ function generateMonsterHitPoints() {
 // Wird für die Erstellung der Monster-Lebenspunkte aufgerufen.
 // Liefert eine variierende Zahl zurück.
 function generateMonsterXP() {
-    // Diese Funktion gibt eine zufällige ganze Zahl (zwischen 0 und 350) + 100 zurück.
-    let tempMonsterXP = 250 + getRNGNumber(700);
+    let tempMonsterXP = 100 + getRNGNumber(370);
     return tempMonsterXP;
 }
 function generateMonsterLvl(newMonsterXP) {
-    return Math.floor(((newMonsterXP - 250) / (750 / 11)));
+    return Math.floor(((newMonsterXP - 100) / (370 / 11)));
 }
 // Wird für die Erstellung der Monster-Modifizierer aufgerufen.
 // Liefert ein Array mit zwei Einträgen zurück.
