@@ -19,7 +19,7 @@ let monsterHolder: string = "monsterHoldingCell";                               
 let playerName: string = "Spielername";                                            // Ein paar globale Variablen, welche den Spieler darstellen.
 let playerXP: number = 0;                                                              // Stellt die gesammelte Erfahrung des Spielers dar.                                                                     ////////////////////////////////wichtig, die playerXp darf nicht null sein... sonst kann man nicht den neuen wert aufaddieren
 let playerLvl: number = 1;
-let playerXPperLevel: number = 624;                                                // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
+let playerXPperLevel: number = 367;                                                // Da es nur einen Spieler gibt, ergibt sich noch nicht viel Sinn darin, für den Spieler ein interface (im Sinne der Programmierung) zu erstellen.
 let playerItems: string[] = ["Kurzschwert"];
 let schonGewonnen: boolean = false;
 
@@ -290,7 +290,8 @@ function fightWeakestMonster() {
         if (monsterArray[tempWeakest - 1].monsterLvl > monsterArray[i - 1].monsterLvl)
             tempWeakest = i;
     }
-    if (playerLvl > monsterArray[tempWeakest].monsterLvl) {
+    console.log("weakest has lvl " + monsterArray[tempWeakest-1].monsterLvl);
+    if (playerLvl > monsterArray[tempWeakest-1].monsterLvl) {
         fightMonster(tempWeakest);
     }
 }
