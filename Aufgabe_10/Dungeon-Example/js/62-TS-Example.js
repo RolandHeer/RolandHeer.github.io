@@ -219,7 +219,9 @@ function fightWeakestMonster() {
         if (monsterArray[tempWeakest - 1].monsterLvl > monsterArray[i - 1].monsterLvl)
             tempWeakest = i;
     }
-    fightMonster(tempWeakest);
+    if (playerLvl > monsterArray[tempWeakest].monsterLvl) {
+        fightMonster(tempWeakest);
+    }
 }
 function fightSame() {
     for (let i = monsterArray.length; i > 0; i--) {

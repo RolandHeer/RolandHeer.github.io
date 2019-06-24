@@ -228,7 +228,7 @@ function generateMonsterName(): string {
 // Wird für die Monster-Lebenspunkte aufgerufen.
 // Liefert eine variierende Zahl zurück.
 function generateMonsterHitPoints(tempLvl: number): number {
-    return Math.round(((tempLvl / 2) * (getRNGNumber(mosnterHpDifferenz)+1)) + monsterHpBase);
+    return Math.round(((tempLvl / 2) * (getRNGNumber(mosnterHpDifferenz) + 1)) + monsterHpBase);
 }
 
 
@@ -290,7 +290,9 @@ function fightWeakestMonster() {
         if (monsterArray[tempWeakest - 1].monsterLvl > monsterArray[i - 1].monsterLvl)
             tempWeakest = i;
     }
-    fightMonster(tempWeakest);
+    if (playerLvl > monsterArray[tempWeakest].monsterLvl) {
+        fightMonster(tempWeakest);
+    }
 }
 
 function fightSame() {
@@ -304,13 +306,13 @@ function fightSame() {
 function fightMonster(_index: number) {
     if (monsterArray.length > 0) {
         if (playerLvl > monsterArray[_index - 1].monsterLvl) {
-            updatePlayerXP(Math.floor(monsterArray[_index - 1].monsterInitExperience/monsterArray[_index-1].monsterHealthPoints));
-            monsterArray[_index-1].monsterExperience = Math.floor(monsterArray[_index - 1].monsterInitExperience/monsterArray[_index-1].monsterHealthPoints);
+            updatePlayerXP(Math.floor(monsterArray[_index - 1].monsterInitExperience / monsterArray[_index - 1].monsterHealthPoints));
+            monsterArray[_index - 1].monsterExperience = Math.floor(monsterArray[_index - 1].monsterInitExperience / monsterArray[_index - 1].monsterHealthPoints);
 
             monsterArray[_index - 1].monsterHealthPoints += -1;
 
             if (monsterArray[_index - 1].monsterHealthPoints <= 0) {
-                console.log("DES MONSTERS ITEM: "+ monsterArray[_index -1].Item)
+                console.log("DES MONSTERS ITEM: " + monsterArray[_index - 1].Item)
                 updatePlayerItems(monsterArray[_index - 1].Item);
                 monsterArray.splice(_index - 1, 1);
             }
@@ -319,18 +321,18 @@ function fightMonster(_index: number) {
         } else if (playerLvl == monsterArray[_index - 1].monsterLvl) {
             console.log("huch da hat ja jemand das gleiche Level");
             if (Math.random() > 0.4) {
-                updatePlayerXP(Math.floor(monsterArray[_index - 1].monsterInitExperience/monsterArray[_index-1].monsterHealthPoints));
-            monsterArray[_index-1].monsterExperience = Math.floor(monsterArray[_index - 1].monsterInitExperience/monsterArray[_index-1].monsterHealthPoints);
+                updatePlayerXP(Math.floor(monsterArray[_index - 1].monsterInitExperience / monsterArray[_index - 1].monsterHealthPoints));
+                monsterArray[_index - 1].monsterExperience = Math.floor(monsterArray[_index - 1].monsterInitExperience / monsterArray[_index - 1].monsterHealthPoints);
 
-            monsterArray[_index - 1].monsterHealthPoints += -1;
+                monsterArray[_index - 1].monsterHealthPoints += -1;
 
-            if (monsterArray[_index - 1].monsterHealthPoints <= 0) {
-                console.log("DES MONSTERS ITEM: "+ monsterArray[_index -1].Item)
-                updatePlayerItems(monsterArray[_index - 1].Item);
-                monsterArray.splice(_index - 1, 1);
-            }
-            updatePlayerLevel();
-            updateHTML();
+                if (monsterArray[_index - 1].monsterHealthPoints <= 0) {
+                    console.log("DES MONSTERS ITEM: " + monsterArray[_index - 1].Item)
+                    updatePlayerItems(monsterArray[_index - 1].Item);
+                    monsterArray.splice(_index - 1, 1);
+                }
+                updatePlayerLevel();
+                updateHTML();
             } else {
                 console.log("du hast zwar verloren, aber ihr habt euch geeinigt, dass du deine Items behalten darfst");
                 updatePlayerXP((monsterArray[_index - 1].monsterExperience) * (-1));
