@@ -117,12 +117,15 @@ function monsterGenerateHTML(count) {
     let tempHealth = (monsterArray[count - 1].monsterHealthPoints / monsterArray[count - 1].monsterInitHealthPoints) * 100;
     if (tempHealth < 60) {
         LifeBar.style.backgroundColor = "#ff961e";
-    }
-    if (tempHealth < 10) {
-        LifeBar.style.backgroundColor = "#a51239";
+        console.log("orange");
     }
     else {
         LifeBar.style.backgroundColor = "#63ed81";
+        console.log("grün");
+    }
+    if (tempHealth < 30) {
+        LifeBar.style.backgroundColor = "#a51239";
+        console.log("rot");
     }
     let tempHealthString = tempHealth + "%";
     LifeBar.style.position = "absolute";
