@@ -1,0 +1,112 @@
+/* css für Codebeispiel 30 */
+/* Einbettung font */
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+/* Basic Styles */
+body {
+	font-size  : 1.0em;
+	font-family: "Courgette", sans-serif;
+	overflow-x: hidden;
+}
+
+button>img {
+	margin: 0.5em auto;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 2em;
+}
+
+#monsterHoldingCell {
+	width : 100%;
+}
+
+.monster {
+	width : 19.5em;
+	height: 34em;
+}
+
+.imgHolder {
+	width   : 100%;
+	height  : 20em;
+	overflow: hidden;
+}
+
+.monster img {
+	width: 100%;
+}
+
+.monster button {
+	text-align: center;
+	display   : block;
+	margin    : auto;
+}
+
+.monster p {
+	text-align: center;
+	display   : block;
+	margin    : auto;
+}
+
+.monster p+p {
+	font-size: 0.7em;
+}
+
+main div {
+	display: inline-block;
+}
+
+button {
+
+	font-family: "Courgette", sans-serif;
+	font-size  : 1.2em;
+	padding    : 1em;
+	overflow   : hidden;
+
+	display: inline-block;
+	width  : 10em;
+
+	border-width : 0;
+	outline      : none;
+	border-radius: 2px;
+	box-shadow   : 0 1px 4px rgba(0, 0, 0, .6);
+
+	background-color: #2ecc71;
+	color           : #ecf0f1;
+
+	margin: auto;
+}
+
+#button-green {
+	background-color: #2ecc71;
+}
+
+#button-red {
+	background-color: #cc2e69;
+}
+
+#buttons {
+	position: relative;
+	left    : 50%;
+}
+
+#buttons div{
+	position: relative;
+	right: 30.5em;
+}
+
+footer {
+	position: absolute;
+	bottom  : 0.5em;
+	right   : 1em;
+}
+
+footer a {
+	color          : #ddd;
+	text-decoration: none;
+}
+
+p {
+	text-align: center;
+}
