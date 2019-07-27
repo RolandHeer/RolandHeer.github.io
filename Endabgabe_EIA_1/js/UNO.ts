@@ -15,6 +15,9 @@ let gameState: number = 0;
 //  2  =  Computer
 //  3  =  Gewonnen
 
+//  4  =  WarteKonstante nach normaler Karte
+//  5  =  WarteKonstante nach special Karte
+
 
 let cardValues: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9/*, 10, 11, 12*/]
 ///////// CARD VALUES \\\\\\\\\
@@ -41,6 +44,8 @@ let count: number = 6;
 let cardDeck: Card[] = [];
 let discardPile: Card[] = [];
 
+let lastThreeDiscard: Card[] = [];
+
 ////Handkarten Gegner und Spieler\\\\
 let hand: Card[] = [];
 let handPc: Card[] = [];
@@ -48,33 +53,21 @@ let handPc: Card[] = [];
 
 window.onload = function () {
     console.log("done loading");
-    main();
+    StartGame();
 }
 
-function main() {
+function StartGame() {
     ////Spielvorbereitung\\\\
     createCardDeck();
     shuffle(cardDeck);
     dealCards(count);
+    initializeDiscard();
+
+    checkLastDiscard();
 
     updateHtml();
 
     incGameState(1);
-    ////Spiel\\\\
-    /*
-    while (gameState != 3) {
-
-        ///hier darf der Spieler
-        if (gameState == 1) {
-
-        }
-
-        ///hier darf der Computer
-        if (gameState == 2) {
-
-        }
-    }
-    */
 }
 
 function createCardDeck() {
@@ -101,19 +94,34 @@ function createCardDeck() {
     }
 }
 
-function shuffle(Cards: Card[]): Card[] {
-    Cards.sort(function (a, b) { return 0.5 - Math.random() });
-    return Cards;
+function shuffle(cards: Card[]): Card[] {
+    cards.sort(function (a, b) { return 0.5 - Math.random() });
+    return cards;
 }
 
 function dealCards(count: number) {
     for (let i: number = 0; i < count * 2; i++) {
-        handPc.push(cardDeck[0]);
-        cardDeck.splice(0, 1);
-        i++;
         hand.push(cardDeck[0]);
         cardDeck.splice(0, 1);
+        i++;
+        handPc.push(cardDeck[0]);
+        cardDeck.splice(0, 1);
     }
+}
+
+function initializeDiscard() {
+    discardPile.push(cardDeck[cardDeck.length - 1]);
+    cardDeck.splice(cardDeck.length - 1, 1);
+}
+
+function checkLastDiscard() {
+    if (discardPile.length > 1) {
+        if (discardPile.length > 2) {
+            lastThreeDiscard[0] = discardPile[discardPile.length - 3];
+        }
+        lastThreeDiscard[1] = discardPile[discardPile.length - 2];
+    }
+    lastThreeDiscard[2] = discardPile[discardPile.length - 1];
 }
 
 function incGameState(c: number) {
@@ -146,10 +154,30 @@ function generateHandCardsHtml() {
     for (let i: number = 0; i < hand.length; i++) {
         generateCardHtml(hand[i], (100 / (hand.length + 1)) * (i + 1), "Spieler");
     }
+    for (let i: number = 0; i < lastThreeDiscard.length; i++) {
+        if (discardPile.length > 2) {
+
+        } else if (discardPile.length > 1) {
+            if (i == 0) {
+                i++;
+            }
+
+        } else {
+            if (i == 0) {
+                i += 2;
+            }
+        }
+        generateCardHtml(lastThreeDiscard[i], (100 / (lastThreeDiscard.length + 1)) * (i + 1), "Last");
+    }
+
+
+
+    generateCardHtml(cardDeck[cardDeck.length - 1], 232, "Talon");
 }
 
 function generateCardHtml(card: Card, position: number, type: string) {
-    if (type == "Gegner" || type == "Spieler") {
+    if (type == "Gegner" || type == "Spieler" || type == "Last" || type == "Talon") {
+
         let cardContainer: HTMLElement = document.createElement("div");
         cardContainer.setAttribute("id", card.value + card.color);
         cardContainer.style.position = "absolute";
@@ -170,15 +198,24 @@ function generateCardHtml(card: Card, position: number, type: string) {
                 console.log("hier stimmt nu was nich es gibt nur die vier Farben");
 
         }
-        if (type == "Gegner") {
+        if (type != "Spieler") {
             cardContainer.style.width = "9em";
         } else {
             cardContainer.style.width = "12em";
         }
-        cardContainer.style.height = "100%";
-        cardContainer.style.left = position + "%";
+        if (type == "Last" || type == "Talon") {
+            cardContainer.style.height = "14.7em";
+        } else {
+            cardContainer.style.height = "100%";
+        }
+        if (type == "Last" || type == "Talon") {
+            cardContainer.style.top = position / 4 + "%";
+            cardContainer.style.left = "28%";
+        } else {
+            cardContainer.style.left = position + "%";
+        }
         cardContainer.style.borderStyle = "solid";
-        if (type == "Gegner") {
+        if (type != "Spieler") {
             cardContainer.style.borderWidth = "5px";
         } else {
             cardContainer.style.borderWidth = "7px";
@@ -205,20 +242,178 @@ function generateCardHtml(card: Card, position: number, type: string) {
         let cardValue3: HTMLElement = document.createElement("p");
         cardValue3.innerHTML = "" + card.value;
         cardValue3.style.position = "absolute";
-        if (type == "Gegner") {
+        if (type != "Spieler") {
             cardValue3.style.fontSize = "12em";
         } else {
             cardValue3.style.fontSize = "16em";
         }
         cardValue3.style.top = "-0.95em";
-        if (type == "Gegner") {
+        if (type != "Spieler") {
             cardValue3.style.left = "0.12em";
         } else {
             cardValue3.style.left = "0.13em";
         }
         cardContainer.appendChild(cardValue3);
+
+        if (type == "Spieler") {
+            cardContainer.addEventListener(
+                'click', function () {
+                    startRound(card, true);
+                }, false);
+        }
+
+        if (type == "Talon") {
+            cardContainer.addEventListener(
+                'click', function () {
+                    startRound(card, false);
+                }, false);
+        }
+
     }
 
+}
+
+function startRound(card: Card, play: boolean) {
+
+    if (gameState == 3) {
+        alert("das Spiel ist rum!");
+        console.log("aber es ist doch rum");
+        return;
+    }
+
+    /////    Spieler    \\\\\\
+    while (gameState == 1) {
+        if (play) {
+            if (validateDraw(card)) {
+                hand = playCard(card, hand);
+                if (!card.special) {
+                    gameState = 2;
+                }
+                if (hand.length < 1) {
+                    gameState = 3;
+                }
+                updateHtml();
+            } else {
+                return;
+            }
+        } else {
+            drawCard(true);
+            gameState = 2;
+            updateHtml();
+        }
+    }
+
+    /////Computergegner\\\\\\
+    while (gameState == 2) {
+        if (getFirstPlayable(handPc) >= 0) {
+            handPc = playCard(handPc[getFirstPlayable(handPc)], handPc)
+            if (!lastThreeDiscard[2].special) {
+                gameState = 4;
+            } else {
+                gameState = 5;
+            }
+            if (handPc.length < 1) {
+                gameState = 3;
+            }
+            setTimeout(switchGameState, 1000);
+            setTimeout(updateHtml, 1000);
+        } else {
+            drawCard(false);
+            gameState = 4;
+            setTimeout(switchGameState, 1000);
+            setTimeout(updateHtml, 1000);
+        }
+    }
+
+    if (gameState == 3) {
+        if (hand.length < 1) {
+            alert("du hast gewonnen!")
+        } else {
+            setTimeout(lose, 1000)
+            gameState = 3;
+        }
+    }
+}
+
+function validateDraw(card: Card): boolean {
+    if (card.color == discardPile[discardPile.length - 1].color || card.value == discardPile[discardPile.length - 1].value) {
+        console.log("Jaaaa das Klappt");
+        return true;
+    } else {
+        console.log("Also so wird das nix... bitte probier s nochmal mit ner anderen Karte oder zieh eine neue!")
+        return false;
+    }
+}
+
+function getFirstPlayable(cards: Card[]): number {
+    for (let i: number = 0; i < cards.length; i++) {
+        if (cards[i].color == lastThreeDiscard[2].color || cards[i].value == lastThreeDiscard[2].value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+function playCard(card: Card, cards: Card[]) {
+    discardPile.push(cards[findCardInArray(card, cards)]);
+    checkLastDiscard();
+    cards.splice(findCardInArray(card, cards), 1);
+    return cards;
+}
+
+function findCardInArray(card: Card, cards: Card[]): number {
+    for (let i: number = 0; i < cards.length; i++) {
+        if (card.color == cards[i].color && card.value == cards[i].value) {
+            return i;
+        }
+    }
+    return 4711;
+}
+
+function drawCard(player: boolean) {
+    if (player) {
+        hand.push(cardDeck[cardDeck.length - 1]);
+        cardDeck.splice(cardDeck.length - 1, 1);
+        if (cardDeck.length < 1) {
+            reshuffle();
+            checkLastDiscard();
+        }
+    } else {
+        handPc.push(cardDeck[cardDeck.length - 1]);
+        cardDeck.splice(cardDeck.length - 1, 1);
+        if (cardDeck.length < 1) {
+            reshuffle();
+            checkLastDiscard();
+        }
+    }
+}
+
+function reshuffle() {
+    let tempDeck: Card[] = [];
+    cardDeck = tempDeck;
+    if (discardPile.length > 3) {
+        for (let i: number = 0; i < discardPile.length - 3; i++) {
+            tempDeck.push(discardPile[0]);
+            discardPile.splice(0, 1);
+        }
+        cardDeck = shuffle(tempDeck);
+    }else{
+        console.log("hier werden eindeutig zu viele Karten gehortet... da mach ich nicht mehr mit");
+    }
+}
+
+function switchGameState() {
+    if (gameState != 3) {
+        if (gameState == 1 || gameState == 5) {
+            gameState = 2;
+        } else {
+            gameState = 1;
+        }
+    }
+}
+
+function lose() {
+    alert("you get nothing, you loose!");
 }
 
 function printArray(Cards: Card[]) {
