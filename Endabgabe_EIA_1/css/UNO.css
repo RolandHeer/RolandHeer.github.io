@@ -26,7 +26,7 @@ header div {
 }
 
 header h1 {
-	font-size     : 2.5em;
+	font-size: 2.5em;
 }
 
 header h2 {
@@ -75,6 +75,12 @@ aside h2 {
 	font-size: 2em;
 }
 
+#uber{
+	position: relative;
+	top: 6.2em;
+	left: 4.5em;
+}
+
 main {
 	position     : relative;
 	display      : inline-block;
@@ -89,11 +95,11 @@ p {
 }
 
 #Gegner {
-	position          : relative;
-	left              : 8%;
-	width             : 75%;
-	height            : 30%;
-	/*background-color: #aa333385;*/
+	position: relative;
+	top     : 5em;
+	left    : 8%;
+	width   : 75%;
+	height  : 30%;
 }
 
 #Spielfeld {
@@ -161,30 +167,36 @@ footer div {
 	height  : 20em;
 }
 
-.red{
+.beige {
+	background-color: #46433f;
+	border-style    : solid;
+	border-radius   : 1em;
+}
+
+.red {
 	background-color: #f54747;
-	border-style: solid;
-	border-color: #fff;
-	border-radius: 1em;
+	border-style    : solid;
+	border-color    : #fff;
+	border-radius   : 1em;
 }
 
-.yellow{
+.yellow {
 	background-color: #f5d847;
-	border-style: solid;
-	border-color: #fff;
-	border-radius: 1em;
+	border-style    : solid;
+	border-color    : #fff;
+	border-radius   : 1em;
 }
 
-.blue{
+.blue {
 	background-color: #1e468f;
-	border-style: solid;
-	border-color: #fff;
-	border-radius: 1em;
+	border-style    : solid;
+	border-color    : #fff;
+	border-radius   : 1em;
 }
 
-.green{
+.green {
 	background-color: #3e8f1e;
-	border-style: solid;
-	border-color: #fff;
-	border-radius: 1em;
+	border-style    : solid;
+	border-color    : #fff;
+	border-radius   : 1em;
 }

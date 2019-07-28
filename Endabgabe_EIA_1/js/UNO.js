@@ -25,7 +25,7 @@ let cardValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 /*, 10, 11, 12*/];
 // 12  =  Kartentausch
 let cardColours = ["red", "yellow", "green", "blue"];
 ///////HandkartenAnzahl\\\\\\
-let count = 6;
+let count = 5;
 ////Ablagestapel und Nachziehstapel\\\\
 let cardDeck = [];
 let discardPile = [];
@@ -139,26 +139,11 @@ function generateHandCardsHtml() {
     generateCardHtml(cardDeck[cardDeck.length - 1], 232, "Talon");
 }
 function generateCardHtml(card, position, type) {
+    document.getElementById("uber").innerHTML = "" + cardDeck.length;
     if (type == "Gegner" || type == "Spieler" || type == "Last" || type == "Talon") {
         let cardContainer = document.createElement("div");
         cardContainer.setAttribute("id", card.value + card.color);
         cardContainer.style.position = "absolute";
-        switch (card.color) {
-            case "red":
-                cardContainer.setAttribute("class", "red");
-                break;
-            case "yellow":
-                cardContainer.setAttribute("class", "yellow");
-                break;
-            case "green":
-                cardContainer.setAttribute("class", "green");
-                break;
-            case "blue":
-                cardContainer.setAttribute("class", "blue");
-                break;
-            default:
-                console.log("hier stimmt nu was nich es gibt nur die vier Farben");
-        }
         if (type != "Spieler") {
             cardContainer.style.width = "9em";
         }
@@ -185,45 +170,74 @@ function generateCardHtml(card, position, type) {
             cardContainer.style.borderWidth = "7px";
         }
         document.getElementById(type).appendChild(cardContainer);
-        let cardValue1 = document.createElement("p");
-        cardValue1.innerHTML = "" + card.value;
-        cardValue1.style.position = "absolute";
-        cardValue1.style.top = "-1em";
-        cardValue1.style.left = "0.2em";
-        cardContainer.appendChild(cardValue1);
-        let cardValue2 = document.createElement("p");
-        cardValue2.innerHTML = "" + card.value;
-        cardValue2.style.position = "absolute";
-        cardValue2.style.bottom = "-1em";
-        cardValue2.style.right = "0.2em";
-        cardValue2.style.transform = "rotate(180deg)";
-        cardContainer.appendChild(cardValue2);
-        let cardValue3 = document.createElement("p");
-        cardValue3.innerHTML = "" + card.value;
-        cardValue3.style.position = "absolute";
-        if (type != "Spieler") {
-            cardValue3.style.fontSize = "12em";
+        if (type == "Gegner" || type == "Talon") {
+            cardContainer.setAttribute("class", "beige");
+            if (type == "Talon") {
+                cardContainer.style.borderColor = "#fff";
+                console.log("lols");
+            }
+            else {
+                cardContainer.style.borderColor = "#ddd";
+                console.log("hihi");
+            }
+            if (type == "Talon") {
+                cardContainer.addEventListener('click', function () {
+                    startRound(card, false);
+                }, false);
+            }
         }
         else {
-            cardValue3.style.fontSize = "16em";
-        }
-        cardValue3.style.top = "-0.95em";
-        if (type != "Spieler") {
-            cardValue3.style.left = "0.12em";
-        }
-        else {
-            cardValue3.style.left = "0.13em";
-        }
-        cardContainer.appendChild(cardValue3);
-        if (type == "Spieler") {
-            cardContainer.addEventListener('click', function () {
-                startRound(card, true);
-            }, false);
-        }
-        if (type == "Talon") {
-            cardContainer.addEventListener('click', function () {
-                startRound(card, false);
-            }, false);
+            switch (card.color) {
+                case "red":
+                    cardContainer.setAttribute("class", "red");
+                    break;
+                case "yellow":
+                    cardContainer.setAttribute("class", "yellow");
+                    break;
+                case "green":
+                    cardContainer.setAttribute("class", "green");
+                    break;
+                case "blue":
+                    cardContainer.setAttribute("class", "blue");
+                    break;
+                default:
+                    console.log("hier stimmt nu was nich es gibt nur die vier Farben");
+            }
+            let cardValue1 = document.createElement("p");
+            cardValue1.innerHTML = "" + card.value;
+            cardValue1.style.position = "absolute";
+            cardValue1.style.top = "-1em";
+            cardValue1.style.left = "0.2em";
+            cardContainer.appendChild(cardValue1);
+            let cardValue2 = document.createElement("p");
+            cardValue2.innerHTML = "" + card.value;
+            cardValue2.style.position = "absolute";
+            cardValue2.style.bottom = "-1em";
+            cardValue2.style.right = "0.2em";
+            cardValue2.style.transform = "rotate(180deg)";
+            cardContainer.appendChild(cardValue2);
+            let cardValue3 = document.createElement("p");
+            cardValue3.innerHTML = "" + card.value;
+            cardValue3.style.position = "absolute";
+            if (type != "Spieler") {
+                cardValue3.style.fontSize = "12em";
+            }
+            else {
+                cardValue3.style.fontSize = "16em";
+            }
+            cardValue3.style.top = "-0.95em";
+            if (type != "Spieler") {
+                cardValue3.style.left = "0.12em";
+            }
+            else {
+                cardValue3.style.left = "0.13em";
+            }
+            cardContainer.appendChild(cardValue3);
+            if (type == "Spieler") {
+                cardContainer.addEventListener('click', function () {
+                    startRound(card, true);
+                }, false);
+            }
         }
     }
 }
@@ -258,8 +272,8 @@ function startRound(card, play) {
     }
     /////Computergegner\\\\\\
     while (gameState == 2) {
-        if (getFirstPlayable(handPc) >= 0) {
-            handPc = playCard(handPc[getFirstPlayable(handPc)], handPc);
+        if (getPlayable(handPc) >= 0) {
+            handPc = playCard(handPc[getPlayable(handPc)], handPc);
             if (!lastThreeDiscard[2].special) {
                 gameState = 4;
             }
@@ -299,9 +313,14 @@ function validateDraw(card) {
         return false;
     }
 }
-function getFirstPlayable(cards) {
+function getPlayable(cards) {
     for (let i = 0; i < cards.length; i++) {
-        if (cards[i].color == lastThreeDiscard[2].color || cards[i].value == lastThreeDiscard[2].value) {
+        if (cards[i].color == lastThreeDiscard[2].color) {
+            return i;
+        }
+    }
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i].value == lastThreeDiscard[2].value) {
             return i;
         }
     }
