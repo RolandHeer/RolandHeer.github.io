@@ -183,16 +183,16 @@ function generateCardHtml(card: Card, position: number, type: string) {
         cardContainer.style.position = "absolute";
         switch (card.color) {
             case "red":
-                cardContainer.style.backgroundColor = "#f54747"
+                cardContainer.setAttribute("class", "red");
                 break;
             case "yellow":
-                cardContainer.style.backgroundColor = "#f5d847"
+                    cardContainer.setAttribute("class", "yellow");
                 break;
             case "green":
-                cardContainer.style.backgroundColor = "#3e8f1e"
+                    cardContainer.setAttribute("class", "green");
                 break;
             case "blue":
-                cardContainer.style.backgroundColor = "#1e468f"
+                    cardContainer.setAttribute("class", "blue");
                 break;
             default:
                 console.log("hier stimmt nu was nich es gibt nur die vier Farben");
@@ -214,14 +214,11 @@ function generateCardHtml(card: Card, position: number, type: string) {
         } else {
             cardContainer.style.left = position + "%";
         }
-        cardContainer.style.borderStyle = "solid";
         if (type != "Spieler") {
             cardContainer.style.borderWidth = "5px";
         } else {
             cardContainer.style.borderWidth = "7px";
         }
-        cardContainer.style.borderColor = "#fff";
-        cardContainer.style.borderRadius = "1em";
         document.getElementById(type).appendChild(cardContainer);
 
         let cardValue1: HTMLElement = document.createElement("p");
