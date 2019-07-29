@@ -35,6 +35,7 @@ let hand = [];
 let handPc = [];
 window.onload = function () {
     console.log("done loading");
+    document.getElementById("New").addEventListener("click", newGame);
     StartGame();
 };
 function StartGame() {
@@ -46,6 +47,15 @@ function StartGame() {
     checkLastDiscard();
     updateHtml();
     incGameState(1);
+}
+function newGame() {
+    cardDeck.splice(0, cardDeck.length);
+    discardPile.splice(0, discardPile.length);
+    lastThreeDiscard.splice(0, lastThreeDiscard.length);
+    hand.splice(0, hand.length);
+    handPc.splice(0, handPc.length);
+    gameState = 0;
+    StartGame();
 }
 function createCardDeck() {
     for (let i = 0; i < cardColours.length; i++) {
@@ -283,14 +293,14 @@ function startRound(card, play) {
             if (handPc.length < 1) {
                 gameState = 3;
             }
-            setTimeout(switchGameState, 1000);
-            setTimeout(updateHtml, 1000);
+            setTimeout(switchGameState, 600);
+            setTimeout(updateHtml, 600);
         }
         else {
             drawCard(false);
             gameState = 4;
-            setTimeout(switchGameState, 1000);
-            setTimeout(updateHtml, 1000);
+            setTimeout(switchGameState, 600);
+            setTimeout(updateHtml, 600);
         }
     }
     if (gameState == 3) {
@@ -298,7 +308,7 @@ function startRound(card, play) {
             alert("du hast gewonnen!");
         }
         else {
-            setTimeout(lose, 1000);
+            setTimeout(lose, 600);
             gameState = 3;
         }
     }
