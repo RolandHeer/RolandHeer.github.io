@@ -14,8 +14,12 @@ body {
     z-index         : -4;
     font-family     : LemonMilklight;
     background-color: #cdf6cf;
-    background-color: #555;
     color           : #cdf6cf;
+}
+
+#Audio{
+    background-color: #db94b1;
+    color: #db94b1;
 }
 
 /* HEADER */
@@ -37,11 +41,24 @@ header div {
     left            : -5%;
     width           : 110%;
     padding-top     : 0.5em;
-    background-color: #a9cbab;
+    background-color: #6c926e;
     text-align      : center;
 }
 
-header h2 {
+#Main header div{
+    background-color: #6c926e;
+}
+
+#EIA header div{
+    background-color: #6c926e;
+}
+
+#Audio header div{
+    background-color: #aa3465;
+}
+
+#EIA header h2 {
+    
     position  : relative;
     top       : 0.25em;
     font-size : 4em;
@@ -56,12 +73,20 @@ header h2 {
     text-align    : center;
 }
 
-header h1 {
+header h2{
+    
+    position  : relative;
+    top       : 0.25em;
+    font-size : 3.8em;
+    text-align: center;
+}
+
+#EIA header h1 {
     position  : relative;
     top       : -3.5em;
     font-size : 1.62em;
     text-align: center;
-    color     : #a9cbab;
+    color     : #6c926e;
 }
 
 #MainSite h1 {
@@ -69,7 +94,20 @@ header h1 {
     top       : -1.55em;
     font-size : 3em;
     text-align: center;
-    color     : #a9cbab;
+    color     : #6c926e;
+}
+
+header h1{
+    position  : relative;
+    top       : -2.36em;
+    font-size : 2.4em;
+    text-align: center;
+    color     : #6c926e;
+}
+
+#Audio h1{
+    letter-spacing: 0.5em;
+    color: #aa3465;
 }
 
 header p {
@@ -77,16 +115,20 @@ header p {
     top       : -5em;
     font-size : 1em;
     text-align: center;
-    color     : #a9cbab;
+}
+
+#Main header p{
+    color     : #6c926e;
+}
+
+#Audio header p{
+    color     : #aa3465;
 }
 
 /* Navigation */
-
-nav {}
-
 #Burger {
     position: fixed;
-    top     : -2em;
+    top     : 0em;
     width   : 3.8em;
     padding : 10px;
     height  : auto
@@ -94,7 +136,26 @@ nav {}
 
 header ul {
     position       : fixed;
-    top            : 1.3em;
+    top            : 2.7em;
+    left           : -0.75em;
+    display        : none;
+    width          : 13em;
+    text-decoration: none;
+    list-style     : none;
+    font-size      : 2em;
+}
+
+#Main #Burger {
+    position: fixed;
+    top     : -1.3em;
+    width   : 3.8em;
+    padding : 10px;
+    height  : auto
+}
+
+#Main ul {
+    position       : fixed;
+    top            : 1.8em;
     left           : -0.75em;
     display        : none;
     width          : 13em;
@@ -111,6 +172,10 @@ header ul:hover {
     display: block;
 }
 
+#Main ul:hover {
+    display: block;
+}
+
 header li {
     position    : relative;
     display     : block;
@@ -119,6 +184,7 @@ header li {
     padding-left: 1em;
 }
 
+
 header a {
     text-decoration: none;
 }
@@ -126,10 +192,18 @@ header a {
 /*Dummsinn*/
 
 header .Main {
-    background-color: #cdf6cf;
+    background-color: #a7e4aa;
 }
 
 .Main a {
+    color: #83b687;
+}
+
+header .Main:hover {
+    background-color: #cdf6cf;
+}
+
+header .Main:hover a {
     color: #a9cbab;
 }
 
@@ -137,7 +211,7 @@ header .Audio {
     background-color: #d16692;
 }
 
-.Audio a {
+header .Audio a {
     color: #aa3465;
 }
 
@@ -145,7 +219,7 @@ header .Audio:hover {
     background-color: #d681a4;
 }
 
-.Audio:hover a {
+header .Audio:hover a {
     color: #ac5076;
 }
 
@@ -153,7 +227,7 @@ header .Video {
     background-color: #f17272;
 }
 
-.Video a {
+header .Video a {
     color: #b63b3b;
 }
 
@@ -161,7 +235,7 @@ header .Video:hover {
     background-color: #f19999;
 }
 
-.Video:hover a {
+header .Video:hover a {
     color: #bd5858;
 }
 
@@ -169,7 +243,7 @@ header .BWL {
     background-color: #7a91af;
 }
 
-.BWL a {
+header .BWL a {
     color: #4b678b;
 }
 
@@ -177,7 +251,7 @@ header .BWL:hover {
     background-color: #a5b9d3;
 }
 
-.BWL:hover a {
+header .BWL:hover a {
     color: #7489a5;
 }
 
@@ -185,7 +259,7 @@ header .Anal {
     background-color: #7aebb6;
 }
 
-.Anal a {
+header .Anal a {
     color: #59a582;
 }
 
@@ -193,7 +267,7 @@ header .Anal:hover {
     background-color: #c5f0dd;
 }
 
-.Anal:hover a {
+header .Anal:hover a {
     color: #94c5ae;
 }
 
@@ -201,7 +275,7 @@ header .Psycho {
     background-color: #9ad7f0;
 }
 
-.Psycho a {
+header .Psycho a {
     color: #4695b4;
 }
 
@@ -209,7 +283,7 @@ header .Psycho:hover {
     background-color: #c7efff;
 }
 
-.Psycho:hover a {
+header .Psycho:hover a {
     color: #8cb1c0;
 }
 
@@ -217,7 +291,7 @@ header .EIA {
     background-color: #ffcb7e;
 }
 
-.EIA a {
+header .EIA a {
     color: #b38d54;
 }
 
@@ -225,7 +299,7 @@ header .EIA:hover {
     background-color: #ffe0b3;
 }
 
-.EIA:hover a {
+header .EIA:hover a {
     color: #bea57e;
 }
 
@@ -233,7 +307,7 @@ header .Gest {
     background-color: #c48bfa;
 }
 
-.Gest a {
+header .Gest a {
     color: #8558af;
 }
 
@@ -241,6 +315,106 @@ header .Gest:hover {
     background-color: #dbb5ff;
 }
 
-.Gest:hover a {
+header .Gest:hover a {
     color: #a182be;
+}
+
+/*Main*/
+
+article {
+    margin          : 2%;
+}
+
+#Main article{
+    background-color: #6c926e;
+}
+
+#Audio article{
+    background-color: #aa3465;
+}
+
+section:nth-child(even) {
+    text-align: right;
+}
+article:nth-child(even) {
+    text-align: right;
+}
+
+h2 {
+    text-align   : center;
+    font-size    : 4em;
+    padding-top  : 2%;
+    padding-left : 2%;
+    padding-right: 2%;
+}
+
+#Main main h2{
+    color        : #6c926e;
+}
+
+#Audio main{
+    color: #db94b1;
+}
+
+h3 {
+    font-size    : 3em;
+    padding-top  : 2%;
+    padding-left : 2%;
+    padding-right: 2%;
+}
+
+h4 {
+    font-size    : 2em;
+    padding-left : 2%;
+    padding-right: 2%;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    float: clear;
+    font-size: 2em;
+    margin   : 2%;
+}
+
+p:last-of-type {
+    padding-bottom: 2%;
+}
+
+p:first-child {
+    padding-top: 2%;
+}
+
+h4+p {
+    padding      : 0%;
+    padding-left : 2%;
+    padding-right: 2%;
+    margin       : 0%;
+}
+
+table {
+    padding   : 2%;
+    font-size : 2em;
+    text-align: left;
+}
+
+table td {
+    padding-right: 30%;
+}
+
+img{
+    position: relative;
+    width: 42.5%;
+    height: auto;
+    padding: 2.5%;
+    display: inline-block;
+    float: left;
+}
+img:nth-child(odd){
+    padding-left: 5%
+}
+img:last-of-type{
+    padding-right: 50%;
 }
