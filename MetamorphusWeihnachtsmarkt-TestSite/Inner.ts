@@ -12,8 +12,6 @@ namespace code{
         
         let parentDocument : HTMLDocument = window.parent.document;
         
-        
-
-       // console.log("dies ist die Ausgabe: " + parentDocument.getElementById("ueberschrift").innerHTML);  
+        console.log("dies ist die Ausgabe: " + parentDocument.getElementById("ueberschrift").innerHTML);  
     }
 }

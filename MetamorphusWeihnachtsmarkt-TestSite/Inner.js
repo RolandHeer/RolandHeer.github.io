@@ -8,7 +8,7 @@ var code;
     function main() {
         console.log("bin im Main");
         let parentDocument = window.parent.document;
-        // console.log("dies ist die Ausgabe: " + parentDocument.getElementById("ueberschrift").innerHTML);  
+        console.log("dies ist die Ausgabe: " + parentDocument.getElementById("ueberschrift").innerHTML);
     }
 })(code || (code = {}));
 //# sourceMappingURL=Inner.js.map
