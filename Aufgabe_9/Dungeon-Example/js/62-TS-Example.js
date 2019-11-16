@@ -71,10 +71,8 @@ function updateHTML() {
 function clearMonsterCell() {
     console.log("");
     let monsterHoldingDiv = document.getElementById(monsterHolder);
-    if (monsterHoldingDiv.hasChildNodes()) {
-        while (monsterHoldingDiv.firstChild) {
-            monsterHoldingDiv.removeChild(monsterHoldingDiv.firstChild);
-        }
+    while (monsterHoldingDiv.firstChild) {
+        monsterHoldingDiv.removeChild(monsterHoldingDiv.firstChild);
     }
     console.log("alles geleert");
 }
@@ -100,6 +98,9 @@ function monsterGenerateHTML(count) {
     let monsterHealth = document.createElement("p");
     monsterHealth.innerHTML = "Health: " + monsterArray[count - 1].monsterHealthPoints;
     holdingDiv.appendChild(monsterHealth);
+    let monsterXP = document.createElement("p");
+    monsterXP.innerHTML = "XP: " + monsterArray[count - 1].monsterExperience;
+    holdingDiv.appendChild(monsterXP);
     let imgDiv = document.createElement("div"); //Neues Div, um Bilder uniformer zu gestalten.
     imgDiv.setAttribute("class", "imgHolder");
     holdingDiv.appendChild(imgDiv);
