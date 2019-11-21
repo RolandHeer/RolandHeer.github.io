@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "/Server/Server.js"
+    "start": "node Server/Server.js"
   },
   "repository": {
     "type": "git",
