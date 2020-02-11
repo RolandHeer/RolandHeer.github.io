@@ -1,0 +1,33 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: darkcyan;
+    overflow-x: hidden;
+    position: relative;
+    top: -10px;
+    
+}
+#score{
+    font-size: 2em;
+}
+p{
+    font-size: 1.2em;
+}
+canvas{padding: 20px;}
+
+div{
+    text-align: center;
+    padding: 5px;
+    margin: 0px;
+    color: azure;
+    float: left;
+}
+footer{
+    color: azure;
+    position: relative;
+    left: 40px;
+    top: -20px;
+    padding:10px;
+    float: right;
+    width: 100%;
+}
