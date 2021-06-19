@@ -1,0 +1,51 @@
+body {
+    all        : unset;
+    overflow   : hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: none;
+}
+
+
+#blend {
+    position: fixed;
+    top     : 0px;
+    left    : 0px;
+}
+
+#fading {
+    opacity: 0;
+}
+
+#year {
+    opacity : 1;
+    position: fixed;
+    right   : 20px;
+    top     : 0px;
+}
+
+#headline {
+    position  : fixed;
+    left      : 20px;
+    top       : 0px;
+    width     : 30%;
+    text-align: center;
+}
+
+#description {
+    position  : fixed;
+    left      : 20px;
+    top       : 90px;
+    width     : 30%;
+    hyphens   : auto;
+    text-align: justify;
+}
+
+h2 {
+    font-size: 50px;
+    color    : white;
+}
+
+p {
+    font-size: 40px;
+    color    : white;
+}

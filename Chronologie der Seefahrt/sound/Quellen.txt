@@ -1,0 +1,28 @@
+ocean.wav	https://freesound.org/people/Noted451/sounds/531015/
+0_austro.wav	https://freesound.org/people/YleArkisto/sounds/254666/
+1_egypt.mp3	https://freesound.org/people/TheoTeravainen/sounds/511198/
+2_maritime.wav	https://freesound.org/people/RTB45/sounds/232409/
+3_khufu.mp3	www.jamendo.com   -   nichtmehr verfügbar
+canal.mp3	www.jamendo.com   -   nichtmehr verfügbar
+
+minoan	
+walla		https://freesound.org/people/kyles/sounds/450589/
+music		https://freesound.org/people/xserra/sounds/115393/
+waves		https://freesound.org/people/subtyrant/sounds/132079/
+
+uluburun.mp3	https://zapsplat.net/zapsplat-sounds/download.php?fileName=music_zapsplat_road_to_ankara.mp3&expiry=1623628239
+
+triere		https://freesound.org/people/GirlWithSoundRecorder/sounds/441008/
+
+	
+salami	
+screams		https://freesound.org/people/AugustSandberg/sounds/265554/
+		https://freesound.org/people/TeamMasaka/sounds/197426/download/197426__teammasaka__robin-scream.flac
+		https://freesound.org/people/TeamMasaka/sounds/197429/download/197429__teammasaka__sebastian-denzer-scream.flac
+		https://freesound.org/people/thestigmata/sounds/202037/
+water		https://freesound.org/people/carmsie/sounds/329915/
+		https://freesound.org/people/bruno.auzet/sounds/544119/
+		https://freesound.org/people/Black_River_Phonogram/sounds/427086/
+wood		https://freesound.org/people/YleArkisto/sounds/347499/
+		https://freesound.org/people/dheming/sounds/177778/
+wind		https://freesound.org/people/Astounded/sounds/483479/
